@@ -28,6 +28,29 @@ import {
   XCircle
 } from "lucide-react";
 
+// Dynamic host resolution for VPS / Cloud / Localhost environments
+const getWsUrl = () => {
+  if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_WS_URL) {
+    return process.env.NEXT_PUBLIC_WS_URL;
+  }
+  if (typeof window !== "undefined" && window.location.hostname !== "localhost") {
+    const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+    return `${protocol}//${window.location.hostname}:3001`;
+  }
+  return "ws://localhost:3001";
+};
+
+const getApiUrl = () => {
+  if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_API_URL) {
+    return process.env.NEXT_PUBLIC_API_URL;
+  }
+  if (typeof window !== "undefined" && window.location.hostname !== "localhost") {
+    const protocol = window.location.protocol === "https:" ? "https:" : "http:";
+    return `${protocol}//${window.location.hostname}:3001`;
+  }
+  return "http://localhost:3001";
+};
+
 interface Transaction {
   id: string;
   txHash: string;
@@ -173,7 +196,7 @@ export default function DashboardPage() {
 
     const connectWs = () => {
       try {
-        ws = new WebSocket("ws://localhost:3001");
+        ws = new WebSocket(getWsUrl());
         
         ws.onopen = () => {
           setWsConnected(true);
@@ -688,7 +711,7 @@ export default function DashboardPage() {
                 <button
                   onClick={async () => {
                     try {
-                      await fetch("http://localhost:3001/api/sentinel/simulate-attack", {
+                      await fetch(`${getApiUrl()}/api/sentinel/simulate-attack`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ attackType: "PRICE_SPIKE_ANOMALY" })
