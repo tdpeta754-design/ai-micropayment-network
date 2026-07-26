@@ -1,0 +1,60 @@
+# ====================================================================
+# AI Micropayment Network (AiMPN v2.0) - ROOT .GITIGNORE
+# Protection for Solo Founder AI-Native Economy
+# ====================================================================
+
+# 1. Dependency Directories
+node_modules/
+/**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 2. Environment Variables & Secrets (CRITICAL: NEVER COMMIT THESE!)
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+private-keys.json
+secrets.json
+
+# 3. Blockchain & Hardhat Artifacts
+contracts/artifacts/
+contracts/cache/
+contracts/typechain-types/
+contracts/coverage/
+contracts/coverage.json
+*.db
+*.sqlite
+*.sqlite3
+backend/data/*.db
+backend/data/*.sqlite
+
+# 4. Build Outputs & Next.js / Dashboard
+dist/
+build/
+out/
+.next/
+dashboard/.next/
+dashboard/out/
+sdk/dist/
+
+# 5. OS & Editor Metadata
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+*.swp
+*.swo
+.gemini/
+.system_generated/
+
+# 6. Temporary & Scratch Files
+scratch/
+tmp/
+temp/
+*.tmp

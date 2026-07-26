@@ -1,0 +1,16 @@
+{
+  "network": "base-sepolia",
+  "chainId": 84532,
+  "deployer": "0x70F70567Ca2bfe6bD62d5bE38D09a04Ba16D575E",
+  "contracts": {
+    "mockUSDC": "0x07D995E6D3519E07EfeD1ceC4dC8603Bb72CB5Ae",
+    "walletFactory": "0x845eDB86aba482eFdF93dCFeA8fE135C11005f3A",
+    "paymentRouter": "0x4605382AaD66Ade85EcE618f835B886F3bdB82d5",
+    "paymaster": "0x9d49fDd08cad4a9dBf090c989866ac8BE3DcD514"
+  },
+  "demoWallets": {
+    "agentA": "0x1052cE37808194D97A8C997e0c9671C0194D5F40",
+    "agentB": "0x88722bEb8eA8C592273Dd63507a26519305E3fFc"
+  },
+  "deployedAt": "2026-07-25T14:36:03.438Z"
+}

@@ -1,0 +1,18 @@
+{
+  "network": "hardhat",
+  "chainId": 84532,
+  "deployer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+  "contracts": {
+    "usdc": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "entryPoint": "0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789",
+    "chainlinkOracle": "0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70",
+    "walletFactory": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "paymentRouter": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+    "paymaster": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"
+  },
+  "config": {
+    "initialEthUsdcRate": "3500000000",
+    "feeCollector": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+  },
+  "deployedAt": "2026-07-26T02:37:12.804Z"
+}

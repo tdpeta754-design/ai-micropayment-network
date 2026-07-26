@@ -1,0 +1,15 @@
+{
+  "name": "ai-micropayment-network",
+  "version": "1.0.0",
+  "description": "Nền tảng Thanh toán Vi mô cho Trí tuệ Nhân tạo (AI Micropayment Network)",
+  "scripts": {
+    "start": "node start.js",
+    "dev": "node start.js",
+    "demo": "cd demo && npm run demo",
+    "test:contracts": "cd contracts && npx hardhat test",
+    "test:backend": "cd backend && npm test",
+    "test:sdk": "cd sdk && npm test"
+  },
+  "author": "Antigravity Team",
+  "license": "MIT"
+}
