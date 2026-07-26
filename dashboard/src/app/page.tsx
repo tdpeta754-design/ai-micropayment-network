@@ -201,6 +201,19 @@ export default function DashboardPage() {
                 totalTxCount: prev.totalTxCount + 1
               }));
               setDailySpent(prev => parseFloat((prev + parseFloat(newTx.amountUsdc)).toFixed(3)));
+            } else if (message.type === "SENTINEL_ALERT" && message.data) {
+              const newTx: Transaction = {
+                id: "alert-" + Date.now(),
+                txHash: message.data.alertId || "0xALERT" + Math.random().toString(16).slice(2),
+                from: message.data.targetWallet || "0x70F7...575E",
+                to: "AI_SENTINEL_WARDEN",
+                amountUsdc: "0.000",
+                purpose: `🚨 [CIRCUIT BREAKER] ${message.data.threatType}: ${message.data.details}`,
+                timestamp: Date.now(),
+                status: "failed"
+              };
+              setTransactions(prev => [newTx, ...prev.slice(0, 19)]);
+              setRejectionError(`🚨 [AI Sentinel Warden] Automated Circuit Breaker Engaged! Target: ${message.data.targetWallet} | Threat: ${message.data.threatType} | Action: ON_CHAIN_PAUSE (<100ms)`);
             }
           } catch (e) {
             console.error("Error parsing WebSocket message:", e);
@@ -668,6 +681,27 @@ export default function DashboardPage() {
                 <div className="w-full h-2 rounded-full bg-[rgba(255,255,255,0.1)] overflow-hidden">
                   <div className="h-full bg-[#a855f7] rounded-full" style={{ width: "12%" }}></div>
                 </div>
+              </div>
+
+              {/* Test AI Sentinel Button */}
+              <div className="pt-2">
+                <button
+                  onClick={async () => {
+                    try {
+                      await fetch("http://localhost:3001/api/sentinel/simulate-attack", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ attackType: "PRICE_SPIKE_ANOMALY" })
+                      });
+                    } catch (e) {
+                      console.error(e);
+                    }
+                  }}
+                  className="w-full py-2 rounded-xl bg-[rgba(239,68,68,0.15)] hover:bg-[rgba(239,68,68,0.3)] text-[#ef4444] font-bold text-xs border border-[rgba(239,68,68,0.3)] hover:border-[#ef4444] transition-all flex items-center justify-center gap-2 shadow-[0_0_10px_rgba(239,68,68,0.2)]"
+                >
+                  <ShieldAlert className="w-4 h-4 text-[#ef4444]" />
+                  <span>🚨 Trigger AI Sentinel Attack Simulation</span>
+                </button>
               </div>
             </div>
           </div>

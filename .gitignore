@@ -32,6 +32,7 @@ contracts/coverage.json
 *.sqlite3
 backend/data/*.db
 backend/data/*.sqlite
+backend/data/*.json
 
 # 4. Build Outputs & Next.js / Dashboard
 dist/
@@ -58,3 +59,10 @@ scratch/
 tmp/
 temp/
 *.tmp
+
+# 7. Media & Video Recordings
+demo-video/
+videos/
+*.webm
+*.mp4
+*.mov
