@@ -484,6 +484,94 @@ export default function DashboardPage() {
         </div>
       </section>
 
+      {/* Mobile Executive Analytics & Financial Reports (For Solo Founder VIP Monitoring) */}
+      <section className="glass-card p-6 mb-8 border-[rgba(168,85,247,0.3)] bg-gradient-to-r from-[rgba(168,85,247,0.08)] to-[rgba(0,242,254,0.05)] shadow-[0_0_20px_rgba(168,85,247,0.15)]">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-[rgba(255,255,255,0.08)]">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[rgba(168,85,247,0.2)] border border-[#a855f7] flex items-center justify-center text-[#a855f7] font-bold shrink-0 shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+              📱
+            </div>
+            <div>
+              <h2 className="text-lg md:text-xl font-bold text-white tracking-tight flex items-center gap-2">
+                <span>Mobile Executive Analytics & Financial Reports</span>
+                <span className="badge badge-purple text-[10px]">PWA READY</span>
+              </h2>
+              <p className="text-xs text-[#94a3b8]">Báo cáo Doanh thu, Lượng truy cập và Hiệu suất Nền kinh tế cho Founder (Ngày / Tuần / Tháng / Quý)</p>
+            </div>
+          </div>
+          <div className="text-xs font-mono text-[#00f2fe] bg-[rgba(0,242,254,0.1)] px-3 py-1.5 rounded-lg border border-[rgba(0,242,254,0.2)] flex items-center gap-2 w-fit">
+            <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse"></span>
+            <span>Live Sync: 100% Uptime</span>
+          </div>
+        </div>
+
+        {/* 4 Timeframe Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div className="p-4 rounded-xl bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.06)] hover:border-[rgba(0,242,254,0.4)] transition-all">
+            <div className="flex items-center justify-between text-xs text-[#94a3b8] mb-1">
+              <span>🌞 Hôm nay (Daily)</span>
+              <span className="text-[#10b981] font-bold">+15.2%</span>
+            </div>
+            <div className="text-2xl font-bold font-mono text-white mb-2">$12.500 <span className="text-xs text-[#00f2fe] font-normal">USDC</span></div>
+            <div className="flex items-center justify-between text-[11px] text-[#94a3b8] border-t border-[rgba(255,255,255,0.05)] pt-2">
+              <span>Truy cập API: <b className="text-white">250 calls</b></span>
+              <span className="text-[#10b981]">0 Gas</span>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.06)] hover:border-[rgba(79,172,254,0.4)] transition-all">
+            <div className="flex items-center justify-between text-xs text-[#94a3b8] mb-1">
+              <span>📅 Tuần này (Weekly)</span>
+              <span className="text-[#10b981] font-bold">+32.4%</span>
+            </div>
+            <div className="text-2xl font-bold font-mono text-white mb-2">$87.500 <span className="text-xs text-[#4facfe] font-normal">USDC</span></div>
+            <div className="flex items-center justify-between text-[11px] text-[#94a3b8] border-t border-[rgba(255,255,255,0.05)] pt-2">
+              <span>Truy cập API: <b className="text-white">1,750 calls</b></span>
+              <span className="text-[#00f2fe]">14 Agents</span>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.06)] hover:border-[rgba(168,85,247,0.4)] transition-all">
+            <div className="flex items-center justify-between text-xs text-[#94a3b8] mb-1">
+              <span>🗓️ Tháng này (Monthly)</span>
+              <span className="text-[#10b981] font-bold">+45.8%</span>
+            </div>
+            <div className="text-2xl font-bold font-mono text-white mb-2">$375.000 <span className="text-xs text-[#a855f7] font-normal">USDC</span></div>
+            <div className="flex items-center justify-between text-[11px] text-[#94a3b8] border-t border-[rgba(255,255,255,0.05)] pt-2">
+              <span>Truy cập API: <b className="text-white">7,500 calls</b></span>
+              <span className="text-[#a855f7]">5 Blocked Attacks</span>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.06)] hover:border-[rgba(16,185,129,0.4)] transition-all">
+            <div className="flex items-center justify-between text-xs text-[#94a3b8] mb-1">
+              <span>📈 Quý III/2026 (Quarterly)</span>
+              <span className="text-[#10b981] font-bold">Q3 Target</span>
+            </div>
+            <div className="text-2xl font-bold font-mono text-[#10b981] mb-2">$1,125.00 <span className="text-xs text-white font-normal">USDC</span></div>
+            <div className="flex items-center justify-between text-[11px] text-[#94a3b8] border-t border-[rgba(255,255,255,0.05)] pt-2">
+              <span>Tổng truy cập: <b className="text-white">22,500 calls</b></span>
+              <span className="text-[#10b981]">0.045 ETH Pool</span>
+            </div>
+          </div>
+        </div>
+
+        {/* PWA Mobile Installation Instruction Banner */}
+        <div className="p-4 rounded-xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-[#a855f7] flex items-center justify-center text-white text-xs font-bold shrink-0">
+              PWA
+            </div>
+            <div className="text-xs text-[#cbd5e1]">
+              <b className="text-white">💡 Hướng dẫn cài đặt App lên điện thoại (iPhone & Android):</b> Mở trình duyệt Safari/Chrome trên điện thoại truy cập vào link Dashboard $\rightarrow$ Chọn trình đơn (Menu) $\rightarrow$ Nhấn <b>"Thêm vào màn hình chính" (Add to Home Screen)</b>. Ứng dụng sẽ chạy độc lập full-screen như App chính chủ mà không cần tải từ App Store!
+            </div>
+          </div>
+          <span className="text-[11px] font-mono text-[#a855f7] border border-[#a855f7] px-3 py-1 rounded-lg shrink-0">
+            Zero App Store Fees
+          </span>
+        </div>
+      </section>
+
       {/* Interactive Simulator Flow Banner (Visible during simulation) */}
       {isSimulating && (
         <section className="glass-card p-6 mb-8 border-[rgba(0,242,254,0.4)] bg-[rgba(0,242,254,0.05)] animate-slide-in">
