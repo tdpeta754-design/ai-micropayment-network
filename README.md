@@ -7,6 +7,14 @@
 [![Security Fuzzing](https://img.shields.io/badge/Security%20Fuzzing-100%25%20Verified-00C853?style=for-the-badge&logo=shield)](./contracts/test/SecurityFuzzSuite.test.ts)
 [![AI Sentinel Warden](https://img.shields.io/badge/AI%20Sentinel-Active%2024%2F7-FF6D00?style=for-the-badge&logo=robot)](./backend/src/services/aiSentinel.js)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Live Video Demo](https://img.shields.io/badge/YouTube-Watch%20Demo%20(2%20min)-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/ItREHiJTlqQ)
+
+---
+
+## 🎬 Watch the 2-Minute Live M2M Demo Video
+See the autonomous AI economy in action! Watch AI agents negotiate via HTTP 402, settle micropayments on Base L2 with zero gas friction, and witness the **AI Sentinel Warden** engage automated circuit breakers in under 100ms:
+
+👉 **[Watch Video Demo on YouTube (https://youtu.be/ItREHiJTlqQ)](https://youtu.be/ItREHiJTlqQ)**
 
 ---
 
