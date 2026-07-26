@@ -110,9 +110,9 @@ async function main() {
   console.log("\n====================================================================");
   console.log("🛡️ VERIFICATION COMMANDS (Basescan / Etherscan)");
   console.log("====================================================================");
-  console.log(`npx hardhat verify --network base ${walletFactoryAddress}`);
-  console.log(`npx hardhat verify --network base ${paymentRouterAddress} "${usdcAddress}" "${feeCollector}"`);
-  console.log(`npx hardhat verify --network base ${paymasterAddress} "${ENTRY_POINT_V06}" "${usdcAddress}" "${initialEthUsdcRate}"`);
+  console.log(`npx hardhat verify --network base-mainnet ${walletFactoryAddress}`);
+  console.log(`npx hardhat verify --network base-mainnet ${paymentRouterAddress} "${usdcAddress}" "${feeCollector}"`);
+  console.log(`npx hardhat verify --network base-mainnet ${paymasterAddress} "${ENTRY_POINT_V06}" "${usdcAddress}" "${initialEthUsdcRate}"`);
   console.log("====================================================================\n");
 }
 
