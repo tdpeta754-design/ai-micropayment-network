@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AiMPN v2.0 — 1-Click DoraHacks & Galxe Bounty Launcher</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #090d16; color: #e2e8f0; margin: 0; padding: 40px; }
+    .container { max-width: 850px; margin: 0 auto; }
+    h1 { color: #38bdf8; border-bottom: 2px solid #1e293b; padding-bottom: 15px; margin-top: 0; }
+    .card { background: #131c2e; border: 1px solid #23314f; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.5); }
+    .title { font-size: 20px; font-weight: bold; color: #f8fafc; margin-bottom: 12px; }
+    .step { display: flex; align-items: flex-start; margin-bottom: 20px; }
+    .step-num { background: #0284c7; color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; margin-right: 15px; margin-top: 2px; }
+    .step-content { flex-grow: 1; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; background: #2563eb; color: #fff; font-weight: bold; padding: 14px 28px; border-radius: 8px; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; font-size: 16px; margin-right: 12px; margin-bottom: 10px; }
+    .btn:hover { background: #1d4ed8; transform: translateY(-2px); }
+    .btn-green { background: #16a34a; }
+    .btn-green:hover { background: #15803d; }
+    .btn-purple { background: #9333ea; }
+    .btn-purple:hover { background: #7e22ce; }
+    .toast { display: none; background: #10b981; color: #fff; padding: 12px 20px; border-radius: 8px; font-weight: bold; margin-bottom: 20px; text-align: center; }
+    textarea { width: 100%; height: 180px; background: #0b0f19; border: 1px solid #334155; border-radius: 8px; color: #38bdf8; padding: 12px; font-family: monospace; font-size: 13px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>⚡ AiMPN v2.0 — 1-Click Autonomous Bounty Submission Assistant</h1>
+    <p style="color: #94a3b8; margin-bottom: 25px;">
+      Vì an ninh tài sản, các sàn Hackathon yêu cầu xác thực ví MetaMask/GitHub chính chủ để tạo Bounty.<br>
+      Công cụ này tự động chuẩn bị 100% dữ liệu và mở trang tạo chiến dịch cho Chủ tịch chỉ với 1 cú nhấp chuột!
+    </p>
+
+    <div id="copyToast" class="toast">✅ ĐÃ SAO CHÉP TOÀN BỘ NỘI DUNG VÀO BỘ NHỚ TẠM! HÃY BẤM CTRL + V TRÊN SÀN ĐỂ DÁN!</div>
+
+    <div class="card">
+      <div class="title">🚀 BƯỚC 1: SAO CHÉP NỘI DUNG CHIẾN DỊCH CHUẨN</div>
+      <p style="color: #cbd5e1;">Bấm nút dưới đây, hệ thống sẽ tự động sao chép toàn bộ nội dung từ <code>DORAHACKS_GALXE_QUEST_MANIFEST.md</code> vào bộ nhớ tạm của máy Chủ tịch:</p>
+      <button class="btn btn-green" onclick="copyManifest()">📋 1. Nhấp để Sao chép Toàn bộ Nội dung Bounty</button>
+      <button class="btn" onclick="copyTitle()">🏷️ 2. Nhấp để Sao chép Tiêu đề Chiến dịch</button>
+      
+      <textarea id="manifestText" readonly># 🏆 AIMPN V2.0 — OFFICIAL HACKATHON & BOUNTY QUEST MANIFEST
+**Platforms:** DoraHacks, Galxe Quests, QuestN, Gitcoin, Zealy  
+**Campaign Title:** 🤖 Build Autonomous AI Agents with Zero-Gas M2M Payments on Base L2 -> Get Instant $10 USDC!  
+**Total Bounty Pool:** Initial 50 USDC (Auto-refilling via 100% Protocol Fee Reinvestment Loop)  
+**Reward per Builder:** $10.00 USDC (Paid out instantly & autonomously on Base Mainnet)  
+
+## 🌟 CAMPAIGN OVERVIEW
+Welcome to the AI Micropayment Network (AiMPN v2.0) Builder Quest on Base Mainnet! 
+We are sponsoring 100% OF GAS FEES (ZERO GAS) via our on-chain ERC-4337 Paymaster! You do not need a single drop of ETH to test and build on Base Mainnet.
+
+### 🎁 The Quest Goal
+Integrate our open-source `@antigravity/sdk` into your AI Agent workflow and execute 100 on-chain M2M micropayments on Base Mainnet between two agent wallets.
+
+### ⚡ Why Participate?
+1. Zero Gas Friction: Our Paymaster (0x7Df0AA...) pays for 100% of your Base L2 transaction gas.
+2. AI Sentinel Warden: Built-in sub-100ms automated circuit breaker that protects your agent's treasury from hallucinations and price spikes.
+3. Instant Autonomous Payout: No manual grading! Our 24/7 On-Chain Indexer monitors PaymentProcessed events on Base Mainnet. The exact second your agent completes 100 transactions, our treasury automatically transfers 10.00 USDC straight to your wallet!
+
+## 📋 QUEST TASKS & VERIFICATION
+- Task 1: Star & Clone Repo -> https://github.com/tdpeta754-design/ai-micropayment-network
+- Task 2: Initialize Zero-Gas SmartWallet on Base Mainnet -> Contract Factory: 0xFdc195DB85a7178f44916E9A21Eb2A9c99Ba5fA6
+- Task 3: Execute 100 Zero-Gas M2M Micropayments ($10 USDC Instant Bounty) -> Verification via 24/7 Autobot `node verify-quest.js --wallet <Address>`</textarea>
+    </div>
+
+    <div class="card">
+      <div class="title">🌐 BƯỚC 2: MỞ TRANG TẠO BOUNTY CHÍNH THỨC TRÊN SÀN</div>
+      <p style="color: #cbd5e1;">Bấm vào nút sàn bạn muốn niêm yết, trình duyệt sẽ tự mở thẳng vào cổng đăng ký chiến dịch:</p>
+      <a href="https://dorahacks.io/bounty" target="_blank" class="btn btn-purple">🟧 Mở cổng Tạo Bounty trên DoraHacks</a>
+      <a href="https://galxe.com/solutions" target="_blank" class="btn">🟦 Mở cổng Tạo Quest trên Galxe</a>
+      <a href="https://questn.com/business" target="_blank" class="btn" style="background: #059669;">🟩 Mở cổng Tạo Quest trên QuestN</a>
+    </div>
+
+    <div class="card">
+      <div class="title">💡 HƯỚNG DẪN THAO TÁC NHANH TRÊN SÀN (10 GIÂY):</div>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">Khi trang DoraHacks / Galxe mở ra, đăng nhập bằng MetaMask hoặc tài khoản GitHub cá nhân của Chủ tịch.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">Tại ô <b>Title (Tiêu đề)</b>: Bấm <code>Ctrl + V</code> (nếu bạn đã bấm nút Số 2 ở trên).</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">Tại ô <b>Description (Nội dung chi tiết)</b>: Bấm nút Số 1 ở trên, rồi sang trình duyệt bấm <code>Ctrl + V</code> là toàn bộ văn bản chuẩn chỉnh hiện ra ngay!</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">Cài đặt <b>Bounty Pool (Quỹ thưởng): 50 USDC</b> và bấm <b>Publish / Submit</b> để hoàn tất!</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function copyManifest() {
+      const text = document.getElementById('manifestText').value;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("✅ ĐÃ SAO CHÉP TOÀN BỘ NỘI DUNG VÀO BỘ NHỚ TẠM! HÃY BẤM CTRL + V TRÊN SÀN ĐỂ DÁN!");
+      });
+    }
+
+    function copyTitle() {
+      const title = "🤖 Build Autonomous AI Agents with Zero-Gas M2M Payments on Base L2 -> Get Instant $10 USDC!";
+      navigator.clipboard.writeText(title).then(() => {
+        showToast("🏷️ ĐÃ SAO CHÉP TIÊU ĐỀ! HÃY DÁN VÀO Ô TITLE TRÊN SÀN!");
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('copyToast');
+      toast.innerText = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 5000);
+    }
+  </script>
+</body>
+</html>
