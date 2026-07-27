@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AiMPN v2.0 — Official 1221x804 Hackathon Banner Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #05080f;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header-panel {
+      max-width: 1221px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      background: #0f172a;
+      padding: 16px 24px;
+      border-radius: 12px;
+      border: 1px solid #1e293b;
+      box-sizing: border-box;
+    }
+    h1 { margin: 0; font-size: 20px; color: #38bdf8; }
+    .btn-group { display: flex; gap: 12px; }
+    .btn {
+      background: #2563eb;
+      color: #fff;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .btn:hover { background: #1d4ed8; transform: translateY(-2px); }
+    .btn-green { background: #16a34a; }
+    .btn-green:hover { background: #15803d; }
+    .canvas-wrapper {
+      position: relative;
+      width: 1221px;
+      height: 804px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 0 40px rgba(56, 189, 248, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid #334155;
+    }
+    canvas {
+      width: 1221px;
+      height: 804px;
+      display: block;
+    }
+    .instruction-card {
+      max-width: 1221px;
+      width: 100%;
+      margin-top: 25px;
+      background: #111827;
+      padding: 20px 24px;
+      border-radius: 12px;
+      border: 1px solid #1f2937;
+      box-sizing: border-box;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-panel">
+    <div>
+      <h1>🎨 AiMPN v2.0 — Hackathon Contest Banner (Chuẩn kích thước 1221 x 804 px)</h1>
+      <div style="font-size: 13px; color: #94a3b8; margin-top: 4px;">Được render bằng HTML5 Canvas theo phong cách Cyberpunk Dark-mode tuyệt đẹp</div>
+    </div>
+    <div class="btn-group">
+      <button class="btn" onclick="renderBanner()">🔄 Render Lại Hiệu Ứng</button>
+      <button class="btn btn-green" onclick="downloadBanner()">📸 Tải Xuống Banner PNG (1221 x 804)</button>
+    </div>
+  </div>
+
+  <div class="canvas-wrapper">
+    <canvas id="bannerCanvas" width="1221" height="804"></canvas>
+  </div>
+
+  <div class="instruction-card">
+    <b style="color: #38bdf8;">💡 HƯỚNG DẪN DÀNH CHO CHỦ TỊCH:</b><br>
+    • Banner này được tạo chính xác <b>100% kích thước chuẩn 1221 x 804 pixel</b> theo đúng yêu cầu niêm yết chiến dịch của sàn thi đấu Hackathon / Galxe.<br>
+    • Nhấp vào nút <b>"📸 Tải Xuống Banner PNG"</b> ở góc trên bên phải, trình duyệt sẽ tự động tải file hình ảnh <code>hackathon_banner_1221x804.png</code> về máy tính của Chủ tịch với độ sắc nét tuyệt đối (không vỡ hình, không lóa màu).<br>
+    • Bạn có thể lập tức tải ảnh này lên ô <b>"Cover Image / Banner"</b> khi đăng chiến dịch Bounty trên DoraHacks hoặc Galxe!
+  </div>
+
+  <script>
+    const canvas = document.getElementById('bannerCanvas');
+    const ctx = canvas.getContext('2d');
+    const W = 1221;
+    const H = 804;
+
+    function renderBanner() {
+      // 1. Background Gradient (Dark Cyberpunk Obsidian)
+      const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+      bgGrad.addColorStop(0, '#040814');
+      bgGrad.addColorStop(0.5, '#0b1329');
+      bgGrad.addColorStop(1, '#050a18');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, W, H);
+
+      // 2. Cyberpunk Grid Lines
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.07)';
+      ctx.lineWidth = 1;
+      const gridSize = 60;
+      for (let x = 0; x < W; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, H);
+        ctx.stroke();
+      }
+      for (let y = 0; y < H; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(W, y);
+        ctx.stroke();
+      }
+
+      // 3. Glowing Neural Network & Blockchain Nodes
+      const nodes = [
+        { x: 150, y: 150, r: 6 }, { x: 300, y: 220, r: 8 }, { x: 220, y: 380, r: 5 },
+        { x: 100, y: 550, r: 7 }, { x: 350, y: 650, r: 9 }, { x: 950, y: 120, r: 8 },
+        { x: 1080, y: 250, r: 6 }, { x: 900, y: 400, r: 7 }, { x: 1100, y: 580, r: 9 },
+        { x: 880, y: 680, r: 5 }, { x: 610, y: 100, r: 7 }, { x: 610, y: 700, r: 8 }
+      ];
+
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.25)';
+      ctx.lineWidth = 1.5;
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 320) {
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      nodes.forEach(n => {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = '#38bdf8';
+        ctx.shadowColor = '#38bdf8';
+        ctx.shadowBlur = 15;
+        ctx.fill();
+        ctx.shadowBlur = 0; // Reset shadow
+      });
+
+      // 4. Glowing Orb / Accent Circles
+      const orbGrad1 = ctx.createRadialGradient(W / 2, H / 2 - 50, 50, W / 2, H / 2 - 50, 450);
+      orbGrad1.addColorStop(0, 'rgba(56, 189, 248, 0.15)');
+      orbGrad1.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = orbGrad1;
+      ctx.fillRect(0, 0, W, H);
+
+      // 5. Top Badge: "$10 USDC INSTANT REWARD POOL"
+      const badgeW = 440;
+      const badgeH = 50;
+      const badgeX = (W - badgeW) / 2;
+      const badgeY = 130;
+      
+      ctx.fillStyle = 'rgba(3, 105, 161, 0.8)';
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 25);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.font = 'bold 20px "Segoe UI", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.fillText('🎁 $10 USDC INSTANT REWARD POOL 🎁', W / 2, badgeY + 32);
+
+      // 6. Main Title: "AiMPN v2.0"
+      ctx.font = '900 84px "Segoe UI", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#38bdf8';
+      ctx.shadowColor = 'rgba(56, 189, 248, 0.6)';
+      ctx.shadowBlur = 30;
+      ctx.fillText('AiMPN v2.0', W / 2, 280);
+      ctx.shadowBlur = 0;
+
+      // 7. Subtitle Title: "AI BUILDER BOUNTY"
+      ctx.font = '900 68px "Segoe UI", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('AI BUILDER BOUNTY', W / 2, 370);
+
+      // 8. Description Line: "ZERO-GAS M2M PAYMENTS ON BASE MAINNET (L2)"
+      ctx.font = 'bold 30px "Segoe UI", sans-serif';
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText('ZERO-GAS M2M PAYMENTS ON BASE MAINNET (L2)', W / 2, 450);
+
+      // 9. Feature Pill Boxes (3 boxes)
+      const features = [
+        "⚡ 100% Free Gas Sponsored",
+        "🤖 AI Sentinel Circuit Breaker",
+        "💰 24/7 Autonomous Payout"
+      ];
+      const boxW = 340;
+      const boxH = 70;
+      const spacing = 30;
+      const startX = (W - (boxW * 3 + spacing * 2)) / 2;
+      const boxY = 530;
+
+      features.forEach((feat, idx) => {
+        const bx = startX + idx * (boxW + spacing);
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
+        ctx.strokeStyle = '#334155';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(bx, boxY, boxW, boxH, 12);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.font = 'bold 20px "Segoe UI", sans-serif';
+        ctx.fillStyle = '#e2e8f0';
+        ctx.fillText(feat, bx + boxW / 2, boxY + 42);
+      });
+
+      // 10. Footer Call to Action
+      ctx.font = 'bold 24px 'Courier New', Courier, monospace';
+      ctx.fillStyle = '#4ade80';
+      ctx.fillText('npm install @antigravity/sdk • https://dorahacks.io/buidl', W / 2, 690);
+
+      // Bottom border glow
+      const botGrad = ctx.createLinearGradient(0, H - 6, W, H - 6);
+      botGrad.addColorStop(0, '#0369a1');
+      botGrad.addColorStop(0.5, '#38bdf8');
+      botGrad.addColorStop(1, '#0369a1');
+      ctx.fillStyle = botGrad;
+      ctx.fillRect(0, H - 6, W, 6);
+    }
+
+    function downloadBanner() {
+      const link = document.createElement('a');
+      link.download = 'hackathon_banner_1221x804.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    // Initial render
+    window.onload = renderBanner;
+  </script>
+</body>
+</html>
