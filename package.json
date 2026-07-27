@@ -11,5 +11,9 @@
     "test:sdk": "cd sdk && npm test"
   },
   "author": "Antigravity Team",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "node-ssh": "^13.2.1"
+  }
 }

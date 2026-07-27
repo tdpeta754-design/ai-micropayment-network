@@ -1,9 +1,10 @@
 const { NodeSSH } = require("node-ssh");
 const ssh = new NodeSSH();
 
-const HOST = "43.98.195.107";
-const USER = "root";
-const PASS = "Huong9865";
+require("dotenv").config();
+const HOST = process.env.VPS_HOST || "43.98.195.107";
+const USER = process.env.VPS_USER || "root";
+const PASS = process.env.VPS_PASS || process.env.VPS_PASSWORD;
 
 const ecosystemContent = `
 module.exports = {

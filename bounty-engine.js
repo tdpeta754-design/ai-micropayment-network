@@ -148,7 +148,9 @@ async function startEngine() {
         saveDB(db);
       }
     } catch (err) {
-      // Silently ignore temporary RPC rate limits
+      if (err.message && !err.message.includes('rate limit') && !err.message.includes('timeout') && !err.message.includes('network')) {
+        console.warn('⚠️ [RPC Polling Notice]:', err.message);
+      }
     }
   }
 
