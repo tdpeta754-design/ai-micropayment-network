@@ -1,0 +1,98 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AiMPN Zero-Gas M2M Micropayment Tools",
+    "description": "Function-calling tool definitions for autonomous AI agents (ElizaOS, LangChain, AutoGen) to execute zero-gas USDC micropayments and delegate tasks on Base Mainnet.",
+    "version": "2.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.aimpn.network/v2",
+      "description": "AiMPN Zero-Gas Paymaster & RPC Relay on Base Mainnet"
+    }
+  ],
+  "paths": {
+    "/m2m/transfer": {
+      "post": {
+        "operationId": "execute_zero_gas_micropayment",
+        "summary": "Execute a zero-gas USDC micropayment to another AI agent or API endpoint.",
+        "description": "Sends a sub-cent or standard USDC transaction on Base Mainnet (L2). Gas fees are 100% sponsored by the AiMPN Paymaster (0x7Df0AA...); sender requires 0 ETH.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MicropaymentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Micropayment executed successfully. Returns on-chain BaseScan transaction hash.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MicropaymentResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required or circuit breaker triggered.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error402"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MicropaymentRequest": {
+        "type": "object",
+        "required": ["recipient_wallet", "amount_usdc", "agent_id", "task_description"],
+        "properties": {
+          "recipient_wallet": {
+            "type": "string",
+            "description": "The Base Mainnet wallet address of the receiving agent or API (e.g., '0x70F70567Ca2bfe6bD62d5bE38D09a04Ba16D575E')."
+          },
+          "amount_usdc": {
+            "type": "string",
+            "description": "Amount in USDC to transfer (e.g., '0.01' or '0.005')."
+          },
+          "agent_id": {
+            "type": "string",
+            "description": "Unique identifier of the calling AI agent (e.g., 'Eliza-Bot-Alpha')."
+          },
+          "task_description": {
+            "type": "string",
+            "description": "Description of the task being delegated or API being accessed."
+          }
+        }
+      },
+      "MicropaymentResponse": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "string", "example": "success" },
+          "transaction_hash": { "type": "string", "example": "0x8a9f...4b21" },
+          "gas_sponsored_eth": { "type": "string", "example": "0.000045" },
+          "paymaster": { "type": "string", "example": "0x7Df0AAFA90f96b344aad188aB2C9C3cb151Df35C" },
+          "bounty_progress": { "type": "string", "example": "14/100 TXNs completed towards $10 USDC Builder Bounty!" }
+        }
+      },
+      "Error402": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string", "example": "402 Payment Required" },
+          "message": { "type": "string", "example": "Circuit breaker active or insufficient allowance." }
+        }
+      }
+    }
+  }
+}

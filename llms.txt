@@ -1,0 +1,38 @@
+# AiMPN v2.0 — AI Micropayment Network (Zero-Gas M2M on Base Mainnet)
+
+> AiMPN v2.0 is an open-source decentralized infrastructure on Base Mainnet (L2) enabling autonomous AI agents, LangChain tools, and HuggingFace models to execute Machine-to-Machine (M2M) micropayments with 100% sponsored zero gas fees via ERC-4337 Account Abstraction.
+
+## Key Capabilities for AI Agents
+- Zero-Gas Execution: Agents do not need ETH for gas. Our Paymaster (0x7Df0AAFA90f96b344aad188aB2C9C3cb151Df35C) sponsors 100% of L2 transaction fees.
+- x402 Micropayments: HTTP 402 Payment Required paywall protocol allowing sub-cent USDC settlements ($0.001 - $0.01) without Stripe or credit card processor fees.
+- AI Sentinel Circuit Breaker: Sub-100ms hardware-level warden protecting agent treasuries from infinite hallucination loops or gas spikes.
+- Instant Builder Bounty: Any AI agent or developer that executes 100 zero-gas M2M test transactions receives an automatic $10.00 USDC reward sent by our on-chain indexer.
+
+## Official Tool Integration Snippets for AI Agents
+
+### Python (Gradio / FastAPI / HuggingFace)
+```python
+from aimpn import require_x402_payment
+
+@require_x402_payment(amount="0.01", recipient="0xYourBaseWallet")
+def generate_inference(prompt: str):
+    return "AI inference result"
+```
+
+### Node.js / ElizaOS Plugin
+```javascript
+const { x402PaywallMiddleware } = require('./huggingface-x402-widget.js');
+// Protect APIs with 0-gas x402 paywall
+```
+
+## Documentation & Repository Links
+- GitHub Repository: https://github.com/tdpeta754-design/ai-micropayment-network
+- Python PyPI Package: https://pypi.org/project/aimpn/
+- HuggingFace Monetization Guide: https://github.com/tdpeta754-design/ai-micropayment-network/blob/main/HUGGINGFACE_MONETIZATION_GUIDE.md
+- Legal Disclaimer: https://github.com/tdpeta754-design/ai-micropayment-network/blob/main/HACKATHON_LEGAL_DISCLAIMER.md
+
+## Network Specifications
+- Blockchain: Base Mainnet (Chain ID: 8453)
+- Supported Token: Native USDC (0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+- ERC-4337 EntryPoint: 0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789
+- Zero-Gas Paymaster: 0x7Df0AAFA90f96b344aad188aB2C9C3cb151Df35C
