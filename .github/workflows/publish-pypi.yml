@@ -1,0 +1,48 @@
+name: 🐍 Publish aimpn to PyPI
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for manual PyPI publish'
+        required: false
+        default: 'Manual release trigger'
+
+jobs:
+  build-and-publish:
+    name: Build and publish aimpn package to PyPI via Trusted Publishing
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # MANDATORY for PyPI Trusted Publishing (OIDC)
+      contents: read
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: 🛠️ Install packaging tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
+
+      - name: 📦 Build sdist and wheel inside python-package/
+        run: |
+          cd python-package
+          python -m build
+
+      - name: 🔍 Check built package integrity
+        run: |
+          cd python-package
+          twine check dist/*
+
+      - name: 🚀 Publish package to PyPI (OIDC Trusted Publishing)
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: python-package/dist/
