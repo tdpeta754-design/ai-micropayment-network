@@ -21,6 +21,9 @@ lerna-debug.log*
 *.pem
 private-keys.json
 secrets.json
+*BACKUP*.json
+*wallet*.json
+*secret*.json
 
 # 3. Blockchain & Hardhat Artifacts
 contracts/artifacts/
