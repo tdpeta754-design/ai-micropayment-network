@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>AiMPN v2.0 — DoraHacks Overview 1-Click Fill-in Kit</title>
+  <title>AiMPN v2.0 — DoraHacks 1-Click Master Fill-in Kit</title>
   <style>
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #080c14; color: #f1f5f9; margin: 0; padding: 40px; }
-    .container { max-width: 850px; margin: 0 auto; }
+    .container { max-width: 900px; margin: 0 auto; }
     h1 { color: #38bdf8; border-bottom: 2px solid #1e293b; padding-bottom: 15px; margin-top: 0; }
     .subtitle { color: #94a3b8; margin-bottom: 30px; font-size: 15px; line-height: 1.6; }
-    .field-card { background: #111827; border: 1px solid #1e293b; border-radius: 12px; padding: 22px; margin-bottom: 20px; }
+    .section-title { font-size: 22px; font-weight: bold; color: #facc15; margin: 30px 0 15px 0; border-left: 4px solid #facc15; padding-left: 12px; }
+    .field-card { background: #111827; border: 1px solid #1e293b; border-radius: 12px; padding: 22px; margin-bottom: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.5); }
     .field-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
     .field-name { font-size: 18px; font-weight: bold; color: #e2e8f0; }
     .btn-copy { background: #0284c7; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
@@ -17,61 +18,88 @@
     .btn-green:hover { background: #15803d; }
     .field-value { background: #030712; border: 1px solid #1f2937; border-radius: 8px; padding: 14px; font-family: 'Courier New', Courier, monospace; color: #38bdf8; font-size: 14px; white-space: pre-wrap; word-break: break-all; }
     .toast { display: none; position: fixed; top: 20px; right: 20px; background: #10b981; color: #fff; padding: 14px 24px; border-radius: 8px; font-weight: bold; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5); z-index: 1000; }
+    .req-tag { background: #dc2626; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 4px; margin-left: 8px; font-weight: normal; }
+    .info-tag { background: #0284c7; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 4px; margin-left: 8px; font-weight: normal; }
   </style>
 </head>
 <body>
   <div id="toast" class="toast">✅ ĐÃ SAO CHÉP VÀO BỘ NHỚ TẠM!</div>
 
   <div class="container">
-    <h1>📋 Trợ lý Điền Biểu mẫu DoraHacks Overview Siêu Tốc</h1>
+    <h1>📋 Trợ lý Điền Biểu mẫu DoraHacks Master Kit (Khớp 100% Dashboard)</h1>
     <div class="subtitle">
-      Dưới đây là toàn bộ các ô dữ liệu chuẩn chỉnh được tối ưu riêng cho trang <b>dashboard.dorahacks.io/hackathon/aimicropay/overview</b>.<br>
-      Chủ tịch chỉ cần bấm nút <b>"📋 Nhấp để Sao chép"</b> bên cạnh từng ô rồi dán (<code>Ctrl + V</code>) thẳng vào trang DoraHacks là xong!
+      Trợ lý Trình duyệt AI vừa quét sâu vào trang <b>dashboard.dorahacks.io/hackathon/aimicropay/overview</b> và bóc tách cấu trúc 5 trang cài đặt.<br>
+      Dưới đây là dữ liệu chuẩn chỉnh cho từng mục. Chủ tịch chỉ cần bấm nút <b>"📋 Nhấp để Sao chép"</b> và dán (<code>Ctrl + V</code>) thẳng vào trang tương ứng!
     </div>
+
+    <div class="section-title">I. TRANG SETTINGS -> INFORMATION (/settings)</div>
 
     <div class="field-card">
       <div class="field-header">
-        <div class="field-name">1. Hackathon / Campaign Name (Tên cuộc thi / Chiến dịch)</div>
-        <button class="btn-copy" onclick="copyText('nameText')">📋 Nhấp để Sao chép</button>
+        <div class="field-name">1. Title (Tên cuộc thi) <span class="req-tag">Bắt buộc - Max 128 ký tự</span></div>
+        <button class="btn-copy" onclick="copyText('titleText')">📋 Nhấp để Sao chép</button>
       </div>
-      <div id="nameText" class="field-value">AiMPN v2.0 — Zero-Gas AI Builder Bounty Quest</div>
+      <div id="titleText" class="field-value">AiMPN v2.0 — Zero-Gas AI Builder Quest</div>
     </div>
 
     <div class="field-card">
       <div class="field-header">
-        <div class="field-name">2. Tagline / Short Description (Khẩu hiệu / Mô tả ngắn)</div>
-        <button class="btn-copy" onclick="copyText('taglineText')">📋 Nhấp để Sao chép</button>
+        <div class="field-name">2. Banner Image (Ảnh bìa cuộc thi) <span class="req-tag">Chuẩn 2400x1200px - Dưới 2MB</span></div>
+        <a href="dorahacks_banner_2400x1200.html" target="_blank" class="btn-copy btn-green" style="text-decoration: none; display: inline-block;">🎨 Mở Trình tạo Banner 2400x1200</a>
       </div>
-      <div id="taglineText" class="field-value">Build autonomous AI Agents on Base Mainnet with 100% sponsored zero-gas M2M micropayments -> Get Instant $10 USDC Bounty!</div>
+      <div class="field-value" style="color: #94a3b8;">DoraHacks yêu cầu độ phân giải cao <b>2400 x 1200 px</b>. Hãy mở file <b>dorahacks_banner_2400x1200.html</b>, tải ảnh về và tải lên DoraHacks!</div>
     </div>
 
     <div class="field-card">
       <div class="field-header">
-        <div class="field-name">3. Cover / Banner Image (Ảnh bìa cuộc thi)</div>
-        <a href="hackathon_banner_1221x804.html" target="_blank" class="btn-copy btn-green" style="text-decoration: none; display: inline-block;">🎨 Mở Trình tạo Banner 1221x804</a>
+        <div class="field-name">3. Prize Pool (Quỹ thưởng) <span class="req-tag">Bắt buộc</span></div>
+        <button class="btn-copy" onclick="copyText('prizeVal')">📋 Nhấp để Sao chép Số 50</button>
       </div>
-      <div class="field-value" style="color: #94a3b8;">Hãy mở file <b>hackathon_banner_1221x804.html</b> và bấm nút tải ảnh về, sau đó tải file <code>hackathon_banner_1221x804.png</code> lên ô Banner trên DoraHacks!</div>
+      <div class="field-value" style="color: #cbd5e1;">Chọn <b>Cash prize (Tiền mặt)</b> -> Điền số tiền (USD): <span id="prizeVal" style="color: #4ade80; font-weight: bold;">50</span></div>
     </div>
 
     <div class="field-card">
       <div class="field-header">
-        <div class="field-name">4. Tracks / Categories (Phân khúc thi đấu)</div>
-        <button class="btn-copy" onclick="copyText('tracksText')">📋 Nhấp để Sao chép</button>
+        <div class="field-name">4. Platform Technologies <span class="req-tag">Bắt buộc - Tối đa 5 công nghệ</span></div>
+        <button class="btn-copy" onclick="copyText('techText')">📋 Nhấp để Sao chép</button>
       </div>
-      <div id="tracksText" class="field-value">AI & Autonomous Agents, Account Abstraction (ERC-4337), Base Ecosystem, Web3 Infrastructure</div>
+      <div id="techText" class="field-value">Base, Account Abstraction, AI Agents, USDC, ElizaOS</div>
     </div>
 
     <div class="field-card">
       <div class="field-header">
-        <div class="field-name">5. Prize Pool & Distribution (Quỹ thưởng & Giải ngân)</div>
-        <button class="btn-copy" onclick="copyText('prizeText')">📋 Nhấp để Sao chép</button>
+        <div class="field-name">5. Tags <span class="req-tag">Bắt buộc - Tối đa 8 thẻ</span></div>
+        <button class="btn-copy" onclick="copyText('tagsText')">📋 Nhấp để Sao chép</button>
       </div>
-      <div id="prizeText" class="field-value">Total Prize Pool: 50 USDC | Reward per Builder: 10 USDC (Paid instantly & autonomously via 24/7 On-Chain Indexer when 100 zero-gas M2M TXNs are verified on Base Mainnet)</div>
+      <div id="tagsText" class="field-value">AI, Web3, Micropayments, ERC-4337, Zero-Gas, Autonomous Agents, DeFi, BUIDL</div>
     </div>
 
     <div class="field-card">
       <div class="field-header">
-        <div class="field-name">6. Detailed Description / Overview (Nội dung chi tiết)</div>
+        <div class="field-name">6. Start Time & Deadline (Thời gian) <span class="info-tag">Quy tắc DoraHacks</span></div>
+      </div>
+      <div class="field-value" style="color: #cbd5e1;">
+        • <b>Start Time (UTC+7):</b> Chọn ngày bắt đầu <b>ít nhất 7 ngày sau hôm nay</b> (vì DoraHacks cần 7 ngày kiểm duyệt thủ công trước khi mở).<br>
+        • <b>Submission Deadline (UTC+7):</b> Chọn ngày kết thúc (ví dụ 30 ngày sau khi bắt đầu).
+      </div>
+    </div>
+
+    <div class="section-title">II. TRANG SETTINGS -> CONTACT (/settings/contact)</div>
+
+    <div class="field-card">
+      <div class="field-header">
+        <div class="field-name">7. Contact for DoraHacks Staff <span class="req-tag">Bắt buộc 1 phương thức</span></div>
+        <button class="btn-copy" onclick="copyText('contactText')">📋 Nhấp để Sao chép</button>
+      </div>
+      <div id="contactText" class="field-value">support@antigravity.dev</div>
+      <div style="font-size: 13px; color: #94a3b8; margin-top: 8px;">* Điền Email hoặc Telegram (@username) của Chủ tịch. Chọn thêm <b>On-site Contact</b> là tên tài khoản Admin đang kết nối!</div>
+    </div>
+
+    <div class="section-title">III. TRANG DETAILS (/detail) — NỘI DUNG CHI TIẾT</div>
+
+    <div class="field-card">
+      <div class="field-header">
+        <div class="field-name">8. Details Editor (Bài viết chi tiết) <span class="req-tag">Bắt buộc - Markdown Support</span></div>
         <button class="btn-copy btn-green" onclick="copyText('descText')">📋 Nhấp để Sao chép Toàn bộ Bài viết</button>
       </div>
       <div id="descText" class="field-value"># 🏆 AiMPN v2.0 — Zero-Gas AI Builder Quest on Base Mainnet
@@ -111,6 +139,20 @@ Integrate our open-source `@antigravity/sdk` into your AI Agent workflow and exe
 * **Action:** Have your AI Agent send 100 micro-transactions (e.g., 0.001 USDC each) to another agent or our test sink via `PaymentRouter` (`0x3Bc7EF17565C47d28477FDC2F1C5A48F1c47B916`).
 * **Gas Cost:** **$0.00** (Sponsored by Paymaster `0x7Df0AAFA90f96b344aad188aB2C9C3cb151Df35C`).
 * **Verification:** 100% Autonomous On-Chain Indexing! Once 100 transactions are confirmed on BaseScan, 10 USDC is sent automatically to your deployer wallet. You can also verify instantly by running `node verify-quest.js --wallet <YourAddress>`.</div>
+    </div>
+
+    <div class="section-title">IV. TRANG TRACKS (/track) — PHÂN KHÚC THI ĐẤU</div>
+
+    <div class="field-card">
+      <div class="field-header">
+        <div class="field-name">9. Track Name & Description <span class="req-tag">Bắt buộc bấm Publish Tracks</span></div>
+        <button class="btn-copy" onclick="copyText('trackDesc')">📋 Nhấp để Sao chép Mô tả Track</button>
+      </div>
+      <div class="field-value" style="color: #cbd5e1;">
+        • <b>Track Name:</b> <code>All BUIDLs</code> (hoặc <code>AI Agents & Account Abstraction</code>)<br>
+        • <b>Track Description:</b> <span id="trackDesc" style="color: #38bdf8;">Open to all developers and builders building autonomous AI agents, DeFi bots, or M2M micropayment workflows on Base Mainnet utilizing ERC-4337 Account Abstraction and Zero-Gas Paymasters.</span><br>
+        👉 <b style="color: #facc15;">Quá trình quan trọng: Bắt buộc phải bấm nút "Publish Tracks" ở dưới cùng để kích hoạt!</b>
+      </div>
     </div>
   </div>
 
