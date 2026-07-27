@@ -1,0 +1,24 @@
+{
+  "name": "@elizaos/plugin-aimpn",
+  "version": "1.0.0",
+  "description": "Official ElizaOS Plugin for AI Micropayment Network (AiMPN v2.0) on Base Mainnet. Zero-gas ERC-4337 M2M payments.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "keywords": [
+    "elizaos",
+    "eliza",
+    "ai-agents",
+    "base",
+    "erc4337",
+    "x402",
+    "micropayments",
+    "zero-gas"
+  ],
+  "author": "Antigravity Team",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "^6.13.0"
+  }
+}
