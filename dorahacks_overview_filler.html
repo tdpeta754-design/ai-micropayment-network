@@ -28,7 +28,7 @@
   <div class="container">
     <h1>📋 Trợ lý Điền Biểu mẫu DoraHacks Master Kit (Khớp 100% Dashboard)</h1>
     <div class="subtitle">
-      Trợ lý Trình duyệt AI vừa quét sâu vào trang <b>dashboard.dorahacks.io/hackathon/aimicropay/overview</b> và bóc tách cấu trúc 5 trang cài đặt.<br>
+      Trợ lý Trình duyệt AI vừa quét sâu vào trang <b>dashboard.dorahacks.io/hackathon/aimicropay/overview</b> và bóc tách cấu trúc 6 trang cài đặt.<br>
       Dưới đây là dữ liệu chuẩn chỉnh cho từng mục. Chủ tịch chỉ cần bấm nút <b>"📋 Nhấp để Sao chép"</b> và dán (<code>Ctrl + V</code>) thẳng vào trang tương ứng!
     </div>
 
@@ -95,11 +95,30 @@
       <div style="font-size: 13px; color: #94a3b8; margin-top: 8px;">* Điền Email hoặc Telegram (@username) của Chủ tịch. Chọn thêm <b>On-site Contact</b> là tên tài khoản Admin đang kết nối!</div>
     </div>
 
-    <div class="section-title">III. TRANG DETAILS (/detail) — NỘI DUNG CHI TIẾT</div>
+    <div class="section-title">III. TRANG SETTINGS -> DISCLAIMER (/settings/disclaimer) — TUYÊN BỐ MIỄN TRỪ TRÁCH NHIỆM</div>
 
     <div class="field-card">
       <div class="field-header">
-        <div class="field-name">8. Details Editor (Bài viết chi tiết) <span class="req-tag">Bắt buộc - Markdown Support</span></div>
+        <div class="field-name">8. Legal Disclaimer Content <span class="info-tag">Khuyên dùng Bật (Enable)</span></div>
+        <button class="btn-copy btn-green" onclick="copyText('disclaimerText')">📋 Nhấp để Sao chép Toàn bộ Tuyên bố Pháp lý</button>
+      </div>
+      <div id="disclaimerText" class="field-value"># ⚖️ AiMPN v2.0 — Hackathon & Builder Bounty Legal Disclaimer
+**Effective Date:** July 2026 | **Event:** AiMPN v2.0 Zero-Gas AI Builder Quest
+
+1. **Acceptance & Nature of Event:** This competition is an open-source software development experiment on Base Mainnet (L2). Participation does not create a banking, employment, or fiduciary relationship with AiMPN or its founders.
+2. **"As Is" Software & Risk Acknowledgment:** All SDK packages (`@antigravity/sdk`), contracts (`PaymentRouter`, `Paymaster`), and AI Sentinel tools are provided "as is" without warranties. Participants acknowledge the risks of L2 network congestion, smart contract bugs, and AI model hallucinations. AiMPN is not liable for private key loss or financial damages.
+3. **Bounty Eligibility & Fair Play:** Rewards ($10 USDC per builder) are distributed autonomously via our on-chain indexer upon reaching 100 qualifying zero-gas M2M transactions. We reserve the right to disqualify Sybil attackers, malicious spam bots, or sanctioned entities (e.g., OFAC lists).
+4. **100% Builder IP Ownership:** Participants retain 100% intellectual property ownership of their submitted source code, AI models, and BUIDLs. You grant AiMPN a royalty-free promotional license to feature and showcase your work across our channels.
+5. **Indemnification:** Participants agree to hold harmless AiMPN, its founders, and ecosystem partners from any disputes or losses arising from their participation or code submissions.
+
+*By submitting a BUIDL or utilizing the AiMPN Paymaster, you agree to these terms in full.*</div>
+    </div>
+
+    <div class="section-title">IV. TRANG DETAILS (/detail) — NỘI DUNG CHI TIẾT</div>
+
+    <div class="field-card">
+      <div class="field-header">
+        <div class="field-name">9. Details Editor (Bài viết chi tiết) <span class="req-tag">Bắt buộc - Markdown Support</span></div>
         <button class="btn-copy btn-green" onclick="copyText('descText')">📋 Nhấp để Sao chép Toàn bộ Bài viết</button>
       </div>
       <div id="descText" class="field-value"># 🏆 AiMPN v2.0 — Zero-Gas AI Builder Quest on Base Mainnet
@@ -141,11 +160,11 @@ Integrate our open-source `@antigravity/sdk` into your AI Agent workflow and exe
 * **Verification:** 100% Autonomous On-Chain Indexing! Once 100 transactions are confirmed on BaseScan, 10 USDC is sent automatically to your deployer wallet. You can also verify instantly by running `node verify-quest.js --wallet <YourAddress>`.</div>
     </div>
 
-    <div class="section-title">IV. TRANG TRACKS (/track) — PHÂN KHÚC THI ĐẤU</div>
+    <div class="section-title">V. TRANG TRACKS (/track) — PHÂN KHÚC THI ĐẤU</div>
 
     <div class="field-card">
       <div class="field-header">
-        <div class="field-name">9. Track Name & Description <span class="req-tag">Bắt buộc bấm Publish Tracks</span></div>
+        <div class="field-name">10. Track Name & Description <span class="req-tag">Bắt buộc bấm Publish Tracks</span></div>
         <button class="btn-copy" onclick="copyText('trackDesc')">📋 Nhấp để Sao chép Mô tả Track</button>
       </div>
       <div class="field-value" style="color: #cbd5e1;">
