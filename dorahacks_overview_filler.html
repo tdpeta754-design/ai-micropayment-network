@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AiMPN v2.0 — DoraHacks Overview 1-Click Fill-in Kit</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #080c14; color: #f1f5f9; margin: 0; padding: 40px; }
+    .container { max-width: 850px; margin: 0 auto; }
+    h1 { color: #38bdf8; border-bottom: 2px solid #1e293b; padding-bottom: 15px; margin-top: 0; }
+    .subtitle { color: #94a3b8; margin-bottom: 30px; font-size: 15px; line-height: 1.6; }
+    .field-card { background: #111827; border: 1px solid #1e293b; border-radius: 12px; padding: 22px; margin-bottom: 20px; }
+    .field-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .field-name { font-size: 18px; font-weight: bold; color: #e2e8f0; }
+    .btn-copy { background: #0284c7; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+    .btn-copy:hover { background: #0369a1; }
+    .btn-green { background: #16a34a; }
+    .btn-green:hover { background: #15803d; }
+    .field-value { background: #030712; border: 1px solid #1f2937; border-radius: 8px; padding: 14px; font-family: 'Courier New', Courier, monospace; color: #38bdf8; font-size: 14px; white-space: pre-wrap; word-break: break-all; }
+    .toast { display: none; position: fixed; top: 20px; right: 20px; background: #10b981; color: #fff; padding: 14px 24px; border-radius: 8px; font-weight: bold; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5); z-index: 1000; }
+  </style>
+</head>
+<body>
+  <div id="toast" class="toast">✅ ĐÃ SAO CHÉP VÀO BỘ NHỚ TẠM!</div>
+
+  <div class="container">
+    <h1>📋 Trợ lý Điền Biểu mẫu DoraHacks Overview Siêu Tốc</h1>
+    <div class="subtitle">
+      Dưới đây là toàn bộ các ô dữ liệu chuẩn chỉnh được tối ưu riêng cho trang <b>dashboard.dorahacks.io/hackathon/aimicropay/overview</b>.<br>
+      Chủ tịch chỉ cần bấm nút <b>"📋 Nhấp để Sao chép"</b> bên cạnh từng ô rồi dán (<code>Ctrl + V</code>) thẳng vào trang DoraHacks là xong!
+    </div>
+
+    <div class="field-card">
+      <div class="field-header">
+        <div class="field-name">1. Hackathon / Campaign Name (Tên cuộc thi / Chiến dịch)</div>
+        <button class="btn-copy" onclick="copyText('nameText')">📋 Nhấp để Sao chép</button>
+      </div>
+      <div id="nameText" class="field-value">AiMPN v2.0 — Zero-Gas AI Builder Bounty Quest</div>
+    </div>
+
+    <div class="field-card">
+      <div class="field-header">
+        <div class="field-name">2. Tagline / Short Description (Khẩu hiệu / Mô tả ngắn)</div>
+        <button class="btn-copy" onclick="copyText('taglineText')">📋 Nhấp để Sao chép</button>
+      </div>
+      <div id="taglineText" class="field-value">Build autonomous AI Agents on Base Mainnet with 100% sponsored zero-gas M2M micropayments -> Get Instant $10 USDC Bounty!</div>
+    </div>
+
+    <div class="field-card">
+      <div class="field-header">
+        <div class="field-name">3. Cover / Banner Image (Ảnh bìa cuộc thi)</div>
+        <a href="hackathon_banner_1221x804.html" target="_blank" class="btn-copy btn-green" style="text-decoration: none; display: inline-block;">🎨 Mở Trình tạo Banner 1221x804</a>
+      </div>
+      <div class="field-value" style="color: #94a3b8;">Hãy mở file <b>hackathon_banner_1221x804.html</b> và bấm nút tải ảnh về, sau đó tải file <code>hackathon_banner_1221x804.png</code> lên ô Banner trên DoraHacks!</div>
+    </div>
+
+    <div class="field-card">
+      <div class="field-header">
+        <div class="field-name">4. Tracks / Categories (Phân khúc thi đấu)</div>
+        <button class="btn-copy" onclick="copyText('tracksText')">📋 Nhấp để Sao chép</button>
+      </div>
+      <div id="tracksText" class="field-value">AI & Autonomous Agents, Account Abstraction (ERC-4337), Base Ecosystem, Web3 Infrastructure</div>
+    </div>
+
+    <div class="field-card">
+      <div class="field-header">
+        <div class="field-name">5. Prize Pool & Distribution (Quỹ thưởng & Giải ngân)</div>
+        <button class="btn-copy" onclick="copyText('prizeText')">📋 Nhấp để Sao chép</button>
+      </div>
+      <div id="prizeText" class="field-value">Total Prize Pool: 50 USDC | Reward per Builder: 10 USDC (Paid instantly & autonomously via 24/7 On-Chain Indexer when 100 zero-gas M2M TXNs are verified on Base Mainnet)</div>
+    </div>
+
+    <div class="field-card">
+      <div class="field-header">
+        <div class="field-name">6. Detailed Description / Overview (Nội dung chi tiết)</div>
+        <button class="btn-copy btn-green" onclick="copyText('descText')">📋 Nhấp để Sao chép Toàn bộ Bài viết</button>
+      </div>
+      <div id="descText" class="field-value"># 🏆 AiMPN v2.0 — Zero-Gas AI Builder Quest on Base Mainnet
+**Campaign Title:** 🤖 Build Autonomous AI Agents with Zero-Gas M2M Payments on Base L2 -> Get Instant $10 USDC!  
+**Total Bounty Pool:** Initial 50 USDC (Auto-refilling via 100% Protocol Fee Reinvestment Loop)  
+**Reward per Builder:** $10.00 USDC (Paid out instantly & autonomously on Base Mainnet)  
+
+---
+
+## 🌟 CAMPAIGN OVERVIEW
+Welcome to the **AI Micropayment Network (AiMPN v2.0)** Builder Quest on Base Mainnet! 
+Are you building AI Agents using ElizaOS, LangChain, AutoGen, CrewAI, or custom scripts? Do your agents need to pay for data APIs, inference, or delegate tasks without getting stuck on gas fees or wallet security risks?
+
+We are sponsoring **100% OF GAS FEES (ZERO GAS)** via our on-chain ERC-4337 Paymaster! You do not need a single drop of ETH to test and build on Base Mainnet.
+
+### 🎁 The Quest Goal
+Integrate our open-source `@antigravity/sdk` into your AI Agent workflow and execute **100 on-chain M2M micropayments** on Base Mainnet between two agent wallets.
+
+### ⚡ Why Participate?
+1. **Zero Gas Friction:** Our Paymaster (`0x7Df0AA...`) pays for 100% of your Base L2 transaction gas.
+2. **AI Sentinel Warden:** Built-in sub-100ms automated circuit breaker that protects your agent's treasury from hallucinations and price spikes.
+3. **Instant Autonomous Payout:** No manual grading or waiting weeks for hackathon judges! Our 24/7 On-Chain Indexer monitors `PaymentProcessed` events on Base Mainnet. The exact second your agent completes 100 transactions, our treasury automatically transfers **10.00 USDC** straight to your wallet!
+
+---
+
+## 📋 QUEST TASKS & VERIFICATION CRITERIA
+
+### ✅ Task 1: Star & Clone the Official Repository
+* **Action:** Star our GitHub repository and install the dependencies.
+* **Link:** `https://github.com/tdpeta754-design/ai-micropayment-network`
+
+### ✅ Task 2: Initialize a Zero-Gas SmartWallet on Base Mainnet
+* **Action:** Run the initialization script using `@antigravity/sdk` or ethers.js to deploy your counterfactual ERC-4337 SmartWallet.
+* **Contract Factory:** `0xFdc195DB85a7178f44916E9A21Eb2A9c99Ba5fA6`
+
+### ✅ Task 3: Execute 100 Zero-Gas M2M Micropayments ($10 USDC Instant Bounty)
+* **Action:** Have your AI Agent send 100 micro-transactions (e.g., 0.001 USDC each) to another agent or our test sink via `PaymentRouter` (`0x3Bc7EF17565C47d28477FDC2F1C5A48F1c47B916`).
+* **Gas Cost:** **$0.00** (Sponsored by Paymaster `0x7Df0AAFA90f96b344aad188aB2C9C3cb151Df35C`).
+* **Verification:** 100% Autonomous On-Chain Indexing! Once 100 transactions are confirmed on BaseScan, 10 USDC is sent automatically to your deployer wallet. You can also verify instantly by running `node verify-quest.js --wallet <YourAddress>`.</div>
+    </div>
+  </div>
+
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 3000);
+      });
+    }
+  </script>
+</body>
+</html>
