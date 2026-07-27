@@ -1,0 +1,18 @@
+{
+  "network": "base-mainnet",
+  "chainId": 8453,
+  "deployer": "0x122844B319f25F85A6e0898705D18e2a024F8E3a",
+  "contracts": {
+    "usdc": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "entryPoint": "0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789",
+    "chainlinkOracle": "0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70",
+    "walletFactory": "0xFdc195DB85a7178f44916E9A21Eb2A9c99Ba5fA6",
+    "paymentRouter": "0x3Bc7EF17565C47d28477FDC2F1C5A48F1c47B916",
+    "paymaster": "0x7Df0AAFA90f96b344aad188aB2C9C3cb151Df35C"
+  },
+  "config": {
+    "initialEthUsdcRate": "3500000000",
+    "feeCollector": "0x122844B319f25F85A6e0898705D18e2a024F8E3a"
+  },
+  "deployedAt": "2026-07-27T01:57:31.429Z"
+}

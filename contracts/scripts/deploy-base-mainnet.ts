@@ -50,20 +50,26 @@ async function main() {
   }
 
   // 1. Deploy WalletFactory
-  console.log("\n📦 [1/3] Deploying WalletFactory (CREATE2 Counterfactual Registry)...");
-  const WalletFactory = await ethers.getContractFactory("WalletFactory");
-  const walletFactory = await WalletFactory.deploy();
-  await walletFactory.waitForDeployment();
-  const walletFactoryAddress = await walletFactory.getAddress();
+  let walletFactoryAddress = "0xFdc195DB85a7178f44916E9A21Eb2A9c99Ba5fA6";
+  if (network.name !== "base-mainnet") {
+    console.log("\n📦 [1/3] Deploying WalletFactory (CREATE2 Counterfactual Registry)...");
+    const WalletFactory = await ethers.getContractFactory("WalletFactory");
+    const walletFactory = await WalletFactory.deploy();
+    await walletFactory.waitForDeployment();
+    walletFactoryAddress = await walletFactory.getAddress();
+  }
   console.log(`   └─ WalletFactory Deployed at : ${walletFactoryAddress}`);
 
   // 2. Deploy PaymentRouter
-  console.log("\n⚡ [2/3] Deploying PaymentRouter (M2M Escrow & Fee Engine)...");
   const feeCollector = deployerAddress; // Initial fee collector is deployer warden
-  const PaymentRouter = await ethers.getContractFactory("PaymentRouter");
-  const paymentRouter = await PaymentRouter.deploy(usdcAddress, feeCollector);
-  await paymentRouter.waitForDeployment();
-  const paymentRouterAddress = await paymentRouter.getAddress();
+  let paymentRouterAddress = "0x3Bc7EF17565C47d28477FDC2F1C5A48F1c47B916";
+  if (network.name !== "base-mainnet") {
+    console.log("\n⚡ [2/3] Deploying PaymentRouter (M2M Escrow & Fee Engine)...");
+    const PaymentRouter = await ethers.getContractFactory("PaymentRouter");
+    const paymentRouter = await PaymentRouter.deploy(usdcAddress, feeCollector);
+    await paymentRouter.waitForDeployment();
+    paymentRouterAddress = await paymentRouter.getAddress();
+  }
   console.log(`   └─ PaymentRouter Deployed at : ${paymentRouterAddress}`);
 
   // 3. Deploy Paymaster
@@ -74,6 +80,14 @@ async function main() {
   await paymaster.waitForDeployment();
   const paymasterAddress = await paymaster.getAddress();
   console.log(`   └─ Paymaster Deployed at     : ${paymasterAddress}`);
+
+  // 4. Deposit ETH into EntryPoint for Paymaster sponsorship
+  if (network.name === "base-mainnet" && parseFloat(balanceEth) > 0.05) {
+    console.log("\n⛽ [4/4] Funding Paymaster Gas Pool in ERC-4337 EntryPoint (0.05 ETH)...");
+    const depositTx = await paymaster.deposit({ value: ethers.parseEther("0.05") });
+    await depositTx.wait();
+    console.log("   └─ Paymaster Funded with 0.05 ETH for Free Gas Sponsorship!");
+  }
 
   // Save deployment artifact
   const deploymentData = {
