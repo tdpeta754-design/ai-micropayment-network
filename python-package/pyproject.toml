@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aimpn"
+version = "2.0.0"
+authors = [
+    { name = "AiMPN Core Team", email = "support@antigravity.dev" },
+]
+description = "Official Python SDK & x402 Zero-Gas Micropayment Paywall Decorator for HuggingFace Spaces and AI Agents on Base Mainnet"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["aimpn", "x402", "micropayments", "huggingface", "gradio", "fastapi", "erc4337", "base", "web3", "ai-agents"]
+
+[project.urls]
+"Homepage" = "https://github.com/tdpeta754-design/ai-micropayment-network"
+"Bug Tracker" = "https://github.com/tdpeta754-design/ai-micropayment-network/issues"
+"Documentation" = "https://github.com/tdpeta754-design/ai-micropayment-network/blob/main/HUGGINGFACE_MONETIZATION_GUIDE.md"
