@@ -10,22 +10,24 @@
     h1 { margin: 0; color: #38bdf8; font-size: 26px; }
     .badge { background: #9333ea; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; }
     .subtitle { color: #94a3b8; margin-bottom: 30px; font-size: 15px; line-height: 1.6; }
-    .tabs { display: flex; gap: 12px; margin-bottom: 25px; }
-    .tab-btn { background: #1e293b; color: #cbd5e1; border: 1px solid #334155; padding: 12px 22px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 15px; transition: all 0.2s; }
-    .tab-btn.active { background: #38bdf8; color: #0f172a; border-color: #38bdf8; }
+    .tabs { display: flex; gap: 12px; margin-bottom: 25px; flex-wrap: wrap; }
+    .tab-btn { background: #1e293b; color: #cbd5e1; border: 2px solid #334155; padding: 14px 24px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; transition: all 0.2s; }
+    .tab-btn:hover { background: #334155; }
+    .tab-btn.active { background: #38bdf8; color: #0f172a; border-color: #38bdf8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.4); }
     .card { background: #111827; border: 1px solid #1e293b; border-radius: 12px; padding: 26px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.5); }
-    .card-title { font-size: 20px; font-weight: bold; color: #facc15; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
-    .issue-box { background: #030712; border: 1px solid #1f2937; border-radius: 8px; padding: 18px; font-family: 'Courier New', Courier, monospace; color: #38bdf8; font-size: 14px; line-height: 1.6; white-space: pre-wrap; margin-bottom: 20px; max-height: 380px; overflow-y: auto; }
-    .btn-group { display: flex; gap: 14px; }
-    .btn { background: #0284c7; color: #fff; border: none; padding: 12px 22px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+    .card-title { font-size: 20px; font-weight: bold; color: #facc15; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .target-badge { font-size: 14px; background: #1e293b; color: #4ade80; padding: 6px 12px; border-radius: 6px; font-weight: bold; border: 1px solid #334155; }
+    .issue-box { background: #030712; border: 1px solid #1f2937; border-radius: 8px; padding: 20px; font-family: 'Courier New', Courier, monospace; color: #38bdf8; font-size: 14px; line-height: 1.6; white-space: pre-wrap; margin-bottom: 22px; max-height: 420px; overflow-y: auto; }
+    .btn-group { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn { background: #0284c7; color: #fff; border: none; padding: 14px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 16px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
     .btn:hover { background: #0369a1; }
     .btn-green { background: #16a34a; }
     .btn-green:hover { background: #15803d; }
-    .toast { display: none; position: fixed; top: 20px; right: 20px; background: #10b981; color: #fff; padding: 14px 24px; border-radius: 8px; font-weight: bold; z-index: 1000; }
+    .toast { display: none; position: fixed; top: 20px; right: 20px; background: #10b981; color: #fff; padding: 14px 24px; border-radius: 8px; font-weight: bold; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
   </style>
 </head>
 <body>
-  <div id="toast" class="toast">✅ ĐÃ SAO CHÉP MẤU ISSUE VÀO BỘ NHỚ TẠM!</div>
+  <div id="toast" class="toast">✅ ĐÃ SAO CHÉP MẪU ĐỀ XUẤT VÀO BỘ NHỚ TẠM!</div>
 
   <div class="container">
     <header>
@@ -41,123 +43,57 @@
     </div>
 
     <div class="tabs">
-      <button class="tab-btn active" id="btnEliza" onclick="selectRepo('eliza')">🤖 ElizaOS (@elizaos/eliza)</button>
-      <button class="tab-btn" id="btnCrew" onclick="selectRepo('crew')">🐝 CrewAI (joaomdmoura/crewAI)</button>
-      <button class="tab-btn" id="btnAuto" onclick="selectRepo('auto')">🌐 Microsoft AutoGen / LangChain</button>
+      <button class="tab-btn active" id="btn-eliza" onclick="switchTab('eliza')">🤖 ElizaOS (@elizaos/eliza)</button>
+      <button class="tab-btn" id="btn-crew" onclick="switchTab('crew')">🐝 CrewAI (joaomdmoura/crewAI)</button>
+      <button class="tab-btn" id="btn-auto" onclick="switchTab('auto')">🌐 Microsoft AutoGen & LangChain</button>
     </div>
 
     <div class="card">
       <div class="card-title">
-        <span id="repoName">💡 Đề xuất cho ElizaOS: Tích hợp @elizaos/plugin-aimpn (Zero-Gas M2M)</span>
-        <span style="font-size: 13px; background: #1e293b; color: #4ade80; padding: 4px 10px; border-radius: 6px; font-weight: normal;">Target: 30,000+ Stars</span>
+        <span id="repoName">Đang tải dữ liệu...</span>
+        <span id="repoTarget" class="target-badge">Target: ...</span>
       </div>
 
-      <div id="issueContent" class="issue-box">### 💡 [Proposal/Feature] Enable Zero-Gas ERC-4337 M2M Micropayments for ElizaOS Agents on Base L2
-
-**Is your feature request related to a problem? Please describe.**
-As ElizaOS agents become more autonomous in DeFi trading and task delegation on Base Mainnet, they face a critical bottleneck: running out of ETH for L2 gas fees or facing high fixed costs when micro-paying for APIs and data feeds.
-
-**Describe the solution you'd like**
-We have built and open-sourced **`@elizaos/plugin-aimpn`** (part of AiMPN v2.0), which empowers ElizaOS agents with:
-1. **100% Sponsored Zero-Gas Transactions:** Powered by our live ERC-4337 Paymaster on Base Mainnet (`0x7Df0AAFA90f96b344aad188aB2C9C3cb151Df35C`). Agents never need ETH for gas!
-2. **x402 Micropayment Protocol:** Enable agents to send & receive sub-cent USDC payments ($0.001 - $0.01) instantly without middlemen fees.
-3. **AI Sentinel Circuit Breaker:** Built-in sub-100ms hardware-level breaker to protect agent treasuries from hallucinations or gas spikes.
-
-**🎁 Special Developer Incentive ($10 USDC Bounty)**
-We are inviting ElizaOS contributors to test our drop-in plugin! Any developer who installs the plugin and executes **100 zero-gas test M2M transactions** on Base Mainnet will automatically receive an instant **$10.00 USDC Builder Bounty** sent directly to their deployer wallet by our 24/7 on-chain indexer!
-
-**Implementation Reference**
-Our official repository and plugin source code are ready for review:
-👉 https://github.com/tdpeta754-design/ai-micropayment-network
-
-Would the core team be open to us submitting a PR to include `@elizaos/plugin-aimpn` in the official plugins ecosystem?</div>
+      <div id="issueContent" class="issue-box">Đang tải mã đề xuất...</div>
 
       <div class="btn-group">
         <button class="btn" onclick="copyIssue()">📋 Sao chép mẫu Đề xuất</button>
-        <a id="repoLink" href="https://github.com/elizaos/eliza/issues/new" target="_blank" class="btn btn-green">🌐 Mở trang tạo Issue trên GitHub -></a>
+        <a id="repoLink" href="#" target="_blank" class="btn btn-green">🌐 Mở trang tạo Issue trên GitHub -></a>
       </div>
     </div>
   </div>
 
   <script>
-    const repos = {
+    const data = {
       eliza: {
         title: "💡 Đề xuất cho ElizaOS: Tích hợp @elizaos/plugin-aimpn (Zero-Gas M2M)",
-        target: "Target: 30,000+ Stars",
+        target: "Target: 30,000+ Stars (@elizaos/eliza)",
         link: "https://github.com/elizaos/eliza/issues/new",
-        text: `### 💡 [Proposal/Feature] Enable Zero-Gas ERC-4337 M2M Micropayments for ElizaOS Agents on Base L2
-
-**Is your feature request related to a problem? Please describe.**
-As ElizaOS agents become more autonomous in DeFi trading and task delegation on Base Mainnet, they face a critical bottleneck: running out of ETH for L2 gas fees or facing high fixed costs when micro-paying for APIs and data feeds.
-
-**Describe the solution you'd like**
-We have built and open-sourced **\`@elizaos/plugin-aimpn\`** (part of AiMPN v2.0), which empowers ElizaOS agents with:
-1. **100% Sponsored Zero-Gas Transactions:** Powered by our live ERC-4337 Paymaster on Base Mainnet (\`0x7Df0AAFA90f96b344aad188aB2C9C3cb151Df35C\`). Agents never need ETH for gas!
-2. **x402 Micropayment Protocol:** Enable agents to send & receive sub-cent USDC payments ($0.001 - $0.01) instantly without middlemen fees.
-3. **AI Sentinel Circuit Breaker:** Built-in sub-100ms hardware-level breaker to protect agent treasuries from hallucinations or gas spikes.
-
-**🎁 Special Developer Incentive ($10 USDC Bounty)**
-We are inviting ElizaOS contributors to test our drop-in plugin! Any developer who installs the plugin and executes **100 zero-gas test M2M transactions** on Base Mainnet will automatically receive an instant **$10.00 USDC Builder Bounty** sent directly to their deployer wallet by our 24/7 on-chain indexer!
-
-**Implementation Reference**
-Our official repository and plugin source code are ready for review:
-👉 https://github.com/tdpeta754-design/ai-micropayment-network
-
-Would the core team be open to us submitting a PR to include \`@elizaos/plugin-aimpn\` in the official plugins ecosystem?`
+        text: `### 💡 [Proposal/Feature] Enable Zero-Gas ERC-4337 M2M Micropayments for ElizaOS Agents on Base L2\n\n**Is your feature request related to a problem? Please describe.**\nAs ElizaOS agents become more autonomous in DeFi trading and task delegation on Base Mainnet, they face a critical bottleneck: running out of ETH for L2 gas fees or facing high fixed costs when micro-paying for APIs and data feeds.\n\n**Describe the solution you'd like**\nWe have built and open-sourced **@elizaos/plugin-aimpn** (part of AiMPN v2.0), which empowers ElizaOS agents with:\n1. **100% Sponsored Zero-Gas Transactions:** Powered by our live ERC-4337 Paymaster on Base Mainnet (0x7Df0AAFA90f96b344aad188aB2C9C3cb151Df35C). Agents never need ETH for gas!\n2. **x402 Micropayment Protocol:** Enable agents to send & receive sub-cent USDC payments ($0.001 - $0.01) instantly without middlemen fees.\n3. **AI Sentinel Circuit Breaker:** Built-in sub-100ms hardware-level breaker to protect agent treasuries from hallucinations or gas spikes.\n\n**🎁 Special Developer Incentive ($10 USDC Bounty)**\nWe are inviting ElizaOS contributors to test our drop-in plugin! Any developer who installs the plugin and executes **100 zero-gas test M2M transactions** on Base Mainnet will automatically receive an instant **$10.00 USDC Builder Bounty** sent directly to their deployer wallet by our 24/7 on-chain indexer!\n\n**Implementation Reference**\nOur official repository and plugin source code are ready for review:\n👉 https://github.com/tdpeta754-design/ai-micropayment-network\n\nWould the core team be open to us submitting a PR to include @elizaos/plugin-aimpn in the official plugins ecosystem?`
       },
       crew: {
         title: "💡 Đề xuất cho CrewAI: Tích hợp aimpn Python SDK cho Multi-Agent Delegation",
-        target: "Target: 25,000+ Stars",
+        target: "Target: 25,000+ Stars (joaomdmoura/crewAI)",
         link: "https://github.com/joaomdmoura/crewAI/issues/new",
-        text: `### 💡 [Proposal/Feature] Enable Zero-Gas x402 Micropayment Delegation between CrewAI Agents on Base L2
-
-**Is your feature request related to a problem? Please describe.**
-In CrewAI multi-agent swarms (e.g. Research Agent working with Coder Agent), there is currently no native economic layer allowing agents to hire, compensate, or pay each other autonomously for compute, API access, or tool execution without human credit card intervention.
-
-**Describe the solution you'd like**
-We have open-sourced the official **\`aimpn\`** Python SDK (AiMPN v2.0 on Base Mainnet L2). It allows CrewAI developers to wrap any tool or sub-agent endpoint with our `@require_x402_payment()` decorator:
-1. **Zero-Gas M2M Micropayments:** Agents can compensate each other $0.001 - $0.01 in USDC on Base Mainnet with 100% sponsored gas fees via our ERC-4337 Paymaster!
-2. **No Stripe / Card Fees:** Eliminates the $0.30 fixed payment processor friction.
-3. **Hardware-level Circuit Breaker:** Prevents agent hallucination loops from draining budgets.
-
-**🎁 Special Developer Bounty ($10 USDC per Dev)**
-We are sponsoring an instant **$10.00 USDC Builder Bounty** for any CrewAI developer who installs \`pip install aimpn\` and runs 100 zero-gas test transactions between two CrewAI agents! Payouts are handled 100% autonomously in real-time by our on-chain indexer.
-
-**Repository & SDK Docs**
-👉 https://github.com/tdpeta754-design/ai-micropayment-network
-
-We would love to submit a PR or tutorial documentation to the CrewAI examples directory if the community is interested!`
+        text: `### 💡 [Proposal/Feature] Enable Zero-Gas x402 Micropayment Delegation between CrewAI Agents on Base L2\n\n**Is your feature request related to a problem? Please describe.**\nIn CrewAI multi-agent swarms (e.g. Research Agent working with Coder Agent), there is currently no native economic layer allowing agents to hire, compensate, or pay each other autonomously for compute, API access, or tool execution without human credit card intervention.\n\n**Describe the solution you'd like**\nWe have open-sourced the official **aimpn** Python SDK (AiMPN v2.0 on Base Mainnet L2). It allows CrewAI developers to wrap any tool or sub-agent endpoint with our @require_x402_payment decorator:\n1. **Zero-Gas M2M Micropayments:** Agents can compensate each other $0.001 - $0.01 in USDC on Base Mainnet with 100% sponsored gas fees via our ERC-4337 Paymaster!\n2. **No Stripe / Card Fees:** Eliminates the $0.30 fixed payment processor friction.\n3. **Hardware-level Circuit Breaker:** Prevents agent hallucination loops from draining budgets.\n\n**🎁 Special Developer Bounty ($10 USDC per Dev)**\nWe are sponsoring an instant **$10.00 USDC Builder Bounty** for any CrewAI developer who installs pip install aimpn and runs 100 zero-gas test transactions between two CrewAI agents! Payouts are handled 100% autonomously in real-time by our on-chain indexer.\n\n**Repository & SDK Docs**\n👉 https://github.com/tdpeta754-design/ai-micropayment-network\n\nWe would love to submit a PR or tutorial documentation to the CrewAI examples directory if the community is interested!`
       },
       auto: {
-        title: "💡 Đề xuất cho Microsoft AutoGen / LangChain: x402 Zero-Gas Tool Execution",
-        target: "Target: 95,000+ Stars",
+        title: "💡 Đề xuất cho Microsoft AutoGen & LangChain: x402 Zero-Gas Tool Execution",
+        target: "Target: 95,000+ Stars (microsoft/autogen & langchain-ai)",
         link: "https://github.com/langchain-ai/langchain/issues/new",
-        text: `### 💡 [Proposal] Integrate AiMPN Zero-Gas x402 Micropayments for LangChain / AutoGen Tool Calling on Base L2
-
-**Is your feature request related to a problem? Please describe.**
-When LangChain / AutoGen agents execute external tools (web scraping, premium APIs, data indexers), tool developers struggle to monetize without forcing users through Stripe paywalls or API key subscriptions.
-
-**Describe the solution you'd like**
-We have open-sourced **AiMPN v2.0** — an ERC-4337 zero-gas micropayment layer on Base Mainnet. By importing our Python package (\`pip install aimpn\`), LangChain tool creators can monetize endpoints using HTTP \`402 Payment Required\`:
-1. **100% Free Gas:** Our live Paymaster sponsors all L2 transaction fees.
-2. **Sub-cent USDC Settlement:** Charge exactly $0.005 or $0.01 per tool invocation.
-3. **Instant On-Chain Builder Bounty:** Any developer who integrates this tool and completes 100 automated test invocations receives an instant **$10.00 USDC Bounty** sent to their wallet autonomously!
-
-**Reference Implementation & Source Code:**
-👉 https://github.com/tdpeta754-design/ai-micropayment-network
-
-We welcome feedback from the maintainers and would be honored to contribute an official integration guide to the repository!`
+        text: `### 💡 [Proposal] Integrate AiMPN Zero-Gas x402 Micropayments for LangChain / AutoGen Tool Calling on Base L2\n\n**Is your feature request related to a problem? Please describe.**\nWhen LangChain / AutoGen agents execute external tools (web scraping, premium APIs, data indexers), tool developers struggle to monetize without forcing users through Stripe paywalls or API key subscriptions.\n\n**Describe the solution you'd like**\nWe have open-sourced **AiMPN v2.0** — an ERC-4337 zero-gas micropayment layer on Base Mainnet. By importing our Python package (pip install aimpn), LangChain tool creators can monetize endpoints using HTTP 402 Payment Required:\n1. **100% Free Gas:** Our live Paymaster sponsors all L2 transaction fees.\n2. **Sub-cent USDC Settlement:** Charge exactly $0.005 or $0.01 per tool invocation.\n3. **Instant On-Chain Builder Bounty:** Any developer who integrates this tool and completes 100 automated test invocations receives an instant **$10.00 USDC Bounty** sent to their wallet autonomously!\n\n**Reference Implementation & Source Code:**\n👉 https://github.com/tdpeta754-design/ai-micropayment-network\n\nWe welcome feedback from the maintainers and would be honored to contribute an official integration guide to the repository!`
       }
     };
 
-    function selectRepo(key) {
-      document.getElementById('btnEliza').className = key === 'eliza' ? 'tab-btn active' : 'tab-btn';
-      document.getElementById('btnCrew').className = key === 'crew' ? 'tab-btn active' : 'tab-btn';
-      document.getElementById('btnAuto').className = key === 'auto' ? 'tab-btn active' : 'tab-btn';
+    function switchTab(key) {
+      document.getElementById('btn-eliza').className = key === 'eliza' ? 'tab-btn active' : 'tab-btn';
+      document.getElementById('btn-crew').className = key === 'crew' ? 'tab-btn active' : 'tab-btn';
+      document.getElementById('btn-auto').className = key === 'auto' ? 'tab-btn active' : 'tab-btn';
 
-      document.getElementById('repoName').innerText = repos[key].title;
-      document.getElementById('issueContent').innerText = repos[key].text;
-      document.getElementById('repoLink').href = repos[key].link;
+      document.getElementById('repoName').innerText = data[key].title;
+      document.getElementById('repoTarget').innerText = data[key].target;
+      document.getElementById('issueContent').innerText = data[key].text;
+      document.getElementById('repoLink').href = data[key].link;
     }
 
     function copyIssue() {
@@ -168,6 +104,11 @@ We welcome feedback from the maintainers and would be honored to contribute an o
         setTimeout(() => { toast.style.display = 'none'; }, 3000);
       });
     }
+
+    // Initialize with ElizaOS tab on load
+    window.onload = () => {
+      switchTab('eliza');
+    };
   </script>
 </body>
 </html>
