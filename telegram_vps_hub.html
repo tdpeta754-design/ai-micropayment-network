@@ -34,29 +34,31 @@
     <header>
       <div>
         <h1>🤖 Trung Tâm Cấu Hình & Triển Khai Bot Telegram 24/7 lên VPS</h1>
-        <div style="color: #94a3b8; font-size: 14px; margin-top: 4px;">Đưa Trợ lý Điều hành AI COO / CTO lên máy chủ riêng — Đồng hành cùng Chủ tịch mọi lúc, mọi nơi!</div>
+        <div style="color: #94a3b8; font-size: 14px; margin-top: 4px;">Đưa Trợ lý Điều hành AI COO / CTO lên máy chủ riêng — Đồng hành cùng Chủ tịch @Thuha0098 mọi lúc, mọi nơi!</div>
       </div>
       <div class="badge">🚀 Online 24/7 Active</div>
     </header>
 
     <div class="subtitle">
-      Nhập Token Bot Telegram của bạn và Chat ID vào 2 ô bên dưới -> Hệ thống sẽ tạo tự động file cấu hình <code>.env</code> và câu lệnh cài đặt 1 dòng trên VPS Linux/Ubuntu!
+      Tôi đã điền sẵn Token Bot và Username Telegram <b>@Thuha0098</b> của Chủ tịch vào ô bên dưới.<br>
+      Chỉ cần bấm <b>"📋 Sao Chép Lệnh VPS"</b> rồi dán vào Terminal máy chủ là Bot lập tức kết nối và khóa quyền điều khiển 100% cho bạn!
     </div>
 
     <div class="grid">
       <!-- Left Panel: Configurator & Commands -->
       <div class="panel">
-        <div class="panel-title">⚙️ NHẬP THÔNG SỐ KẾT NỐI BOT</div>
+        <div class="panel-title">⚙️ THÔNG SỐ KẾT NỐI BOT CỦA CHỦ TỊCH</div>
         
-        <label>Telegram Bot Token (Lấy từ @BotFather):</label>
-        <input type="text" id="tokenInput" value="7123456789:AAH...YourBotTokenHere..." oninput="updateHub()">
+        <label>Telegram Bot Token (Đã điền sẵn):</label>
+        <input type="text" id="tokenInput" value="8219692420:AAF9AM78MRiI54igwlk8T7Y992kRtYodReg" oninput="updateHub()">
 
-        <label>Telegram Chat ID của Chủ tịch (Lấy từ @userinfobot):</label>
-        <input type="text" id="chatIdInput" value="123456789" oninput="updateHub()">
+        <label>Telegram Username của Chủ tịch (Đã khóa bảo mật):</label>
+        <input type="text" id="chatIdInput" value="@Thuha0098" oninput="updateHub()">
 
         <div style="border-top: 1px solid #1e293b; margin: 20px 0; padding-top: 20px;">
           <div class="panel-title" style="font-size: 16px; margin-bottom: 14px;">💬 CÁC LỆNH ĐIỀU HÀNH TRÊN TELEGRAM</div>
           <ul class="cmd-list">
+            <li><span class="cmd-code">/start</span> — Mở lời chào và xác thực quyền Chủ tịch @Thuha0098.</li>
             <li><span class="cmd-code">/status</span> — Báo cáo trạng thái nút mạng Base L2 & Paymaster 0 đồng.</li>
             <li><span class="cmd-code">/bounty</span> — Kiểm tra tiến độ lập trình viên tham gia & Quỹ 10 USDC.</li>
             <li><span class="cmd-code">/tweet</span> — Lấy bài viral X (Twitter) sẵn sàng copy và đăng ngay.</li>
@@ -85,8 +87,8 @@
 
   <script>
     function updateHub() {
-      const token = document.getElementById('tokenInput').value.trim() || 'YOUR_BOT_TOKEN';
-      const chatId = document.getElementById('chatIdInput').value.trim() || 'YOUR_CHAT_ID';
+      const token = document.getElementById('tokenInput').value.trim() || '8219692420:AAF9AM78MRiI54igwlk8T7Y992kRtYodReg';
+      const chatId = document.getElementById('chatIdInput').value.trim() || '@Thuha0098';
 
       const envText = `TELEGRAM_BOT_TOKEN="${token}"\nCHAIRMAN_CHAT_ID="${chatId}"\nAIMPN_RECIPIENT_WALLET="0x70F70567Ca2bfe6bD62d5bE38D09a04Ba16D575E"`;
       
