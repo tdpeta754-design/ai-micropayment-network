@@ -8,8 +8,11 @@
  */
 
 require('dotenv').config();
-const TelegramBot = require('node-telegram-bot-api');
+const TelegramBotModule = require('node-telegram-bot-api');
 const axios = require('axios');
+
+// Handle both ES module default exports and standard CommonJS exports in Node 20/24+
+const TelegramBot = TelegramBotModule.default || TelegramBotModule.TelegramBot || TelegramBotModule;
 
 // 1. Load Environment Configuration
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8219692420:AAF9AM78MRiI54igwlk8T7Y992kRtYodReg';
@@ -20,7 +23,7 @@ const BASE_RPC_URL = 'https://mainnet.base.org';
 // Initialize Telegram Bot (Polling mode for simple VPS setup without webhook SSL)
 const bot = new TelegramBot(BOT_TOKEN, { polling: true });
 
-console.log('⚡ [AiMPN 24/7 COO Bot] Starting up on VPS... Connecting to Telegram...');
+console.log('⚡ [AiMPN 24/7 COO Bot] Starting up on VPS/Local... Connecting to Telegram...');
 
 /**
  * Security Middleware: Ensure ONLY Chairman @Thuha0098 can issue executive commands!
