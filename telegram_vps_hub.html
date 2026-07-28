@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AiMPN v2.0 — Telegram 24/7 AI COO Bot & VPS Hub</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #080c14; color: #f1f5f9; margin: 0; padding: 40px; }
+    .container { max-width: 950px; margin: 0 auto; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #1e293b; padding-bottom: 20px; margin-bottom: 30px; }
+    h1 { margin: 0; color: #38bdf8; font-size: 26px; }
+    .badge { background: #0284c7; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; }
+    .subtitle { color: #94a3b8; margin-bottom: 30px; font-size: 15px; line-height: 1.6; }
+    .grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 25px; }
+    .panel { background: #111827; border: 1px solid #1e293b; border-radius: 12px; padding: 24px; box-sizing: border-box; }
+    .panel-title { font-size: 18px; font-weight: bold; color: #facc15; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+    label { display: block; font-size: 14px; color: #94a3b8; margin-bottom: 6px; font-weight: 500; }
+    input { width: 100%; background: #030712; border: 1px solid #334155; border-radius: 8px; padding: 12px; color: #fff; font-size: 14px; margin-bottom: 18px; box-sizing: border-box; font-family: monospace; }
+    input:focus { border-color: #38bdf8; outline: none; }
+    .code-box { background: #030712; border: 1px solid #1f2937; border-radius: 8px; padding: 16px; font-family: 'Courier New', Courier, monospace; color: #38bdf8; font-size: 13px; line-height: 1.5; white-space: pre-wrap; word-break: break-all; position: relative; margin-bottom: 20px; max-height: 280px; overflow-y: auto; }
+    .btn { background: #0284c7; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 13px; }
+    .btn:hover { background: #0369a1; }
+    .btn-copy { position: absolute; top: 10px; right: 10px; background: #334155; }
+    .btn-copy:hover { background: #475569; }
+    .toast { display: none; position: fixed; top: 20px; right: 20px; background: #10b981; color: #fff; padding: 14px 24px; border-radius: 8px; font-weight: bold; z-index: 1000; }
+    .cmd-list { list-style: none; padding: 0; margin: 0; font-size: 14px; color: #cbd5e1; }
+    .cmd-list li { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #1e293b; }
+    .cmd-code { color: #facc15; font-family: monospace; font-weight: bold; font-size: 15px; }
+  </style>
+</head>
+<body>
+  <div id="toast" class="toast">✅ ĐÃ SAO CHÉP MÃ LỆNH!</div>
+
+  <div class="container">
+    <header>
+      <div>
+        <h1>🤖 Trung Tâm Cấu Hình & Triển Khai Bot Telegram 24/7 lên VPS</h1>
+        <div style="color: #94a3b8; font-size: 14px; margin-top: 4px;">Đưa Trợ lý Điều hành AI COO / CTO lên máy chủ riêng — Đồng hành cùng Chủ tịch mọi lúc, mọi nơi!</div>
+      </div>
+      <div class="badge">🚀 Online 24/7 Active</div>
+    </header>
+
+    <div class="subtitle">
+      Nhập Token Bot Telegram của bạn và Chat ID vào 2 ô bên dưới -> Hệ thống sẽ tạo tự động file cấu hình <code>.env</code> và câu lệnh cài đặt 1 dòng trên VPS Linux/Ubuntu!
+    </div>
+
+    <div class="grid">
+      <!-- Left Panel: Configurator & Commands -->
+      <div class="panel">
+        <div class="panel-title">⚙️ NHẬP THÔNG SỐ KẾT NỐI BOT</div>
+        
+        <label>Telegram Bot Token (Lấy từ @BotFather):</label>
+        <input type="text" id="tokenInput" value="7123456789:AAH...YourBotTokenHere..." oninput="updateHub()">
+
+        <label>Telegram Chat ID của Chủ tịch (Lấy từ @userinfobot):</label>
+        <input type="text" id="chatIdInput" value="123456789" oninput="updateHub()">
+
+        <div style="border-top: 1px solid #1e293b; margin: 20px 0; padding-top: 20px;">
+          <div class="panel-title" style="font-size: 16px; margin-bottom: 14px;">💬 CÁC LỆNH ĐIỀU HÀNH TRÊN TELEGRAM</div>
+          <ul class="cmd-list">
+            <li><span class="cmd-code">/status</span> — Báo cáo trạng thái nút mạng Base L2 & Paymaster 0 đồng.</li>
+            <li><span class="cmd-code">/bounty</span> — Kiểm tra tiến độ lập trình viên tham gia & Quỹ 10 USDC.</li>
+            <li><span class="cmd-code">/tweet</span> — Lấy bài viral X (Twitter) sẵn sàng copy và đăng ngay.</li>
+            <li><span class="cmd-code">/ask [nội dung]</span> — Thảo luận chiến lược điều hành hoặc viết code cùng AI 24/7!</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Panel: Generated Code -->
+      <div class="panel">
+        <div class="panel-title">📦 NỘI DUNG FILE CẤU HÌNH (.env)</div>
+        <div class="code-box">
+          <button class="btn btn-copy" onclick="copyBox('envDisplay')">📋 Sao Chép .env</button>
+          <div id="envDisplay"></div>
+        </div>
+
+        <div class="panel-title">🖥️ LỆNH CÀI ĐẶT 1 DÒNG TRÊN VPS (UBUNTU / DEBIAN)</div>
+        <div style="font-size: 13px; color: #94a3b8; margin-bottom: 8px;">Dán dòng lệnh dưới đây vào Terminal SSH của VPS là Bot tự chạy 24/7 và tự khởi động lại khi reset máy:</div>
+        <div class="code-box" style="max-height: 180px;">
+          <button class="btn btn-copy" onclick="copyBox('bashDisplay')">📋 Sao Chép Lệnh VPS</button>
+          <div id="bashDisplay"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function updateHub() {
+      const token = document.getElementById('tokenInput').value.trim() || 'YOUR_BOT_TOKEN';
+      const chatId = document.getElementById('chatIdInput').value.trim() || 'YOUR_CHAT_ID';
+
+      const envText = `TELEGRAM_BOT_TOKEN="${token}"\nCHAIRMAN_CHAT_ID="${chatId}"\nAIMPN_RECIPIENT_WALLET="0x70F70567Ca2bfe6bD62d5bE38D09a04Ba16D575E"`;
+      
+      const bashText = `curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt-get install -y nodejs git && sudo npm install -g pm2 && git clone https://github.com/tdpeta754-design/ai-micropayment-network.git && cd ai-micropayment-network && npm install && npm install node-telegram-bot-api dotenv axios && echo 'TELEGRAM_BOT_TOKEN="${token}"' > .env && echo 'CHAIRMAN_CHAT_ID="${chatId}"' >> .env && pm2 start telegram-coo-bot.js --name "aimpn-coo" && pm2 save && pm2 startup`;
+
+      document.getElementById('envDisplay').innerText = envText;
+      document.getElementById('bashDisplay').innerText = bashText;
+    }
+
+    function copyBox(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 3000);
+      });
+    }
+
+    window.onload = updateHub;
+  </script>
+</body>
+</html>
