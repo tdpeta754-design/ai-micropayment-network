@@ -26,6 +26,8 @@ secrets.json
 *secret*.json
 
 # 3. Blockchain & Hardhat Artifacts
+marketing_operations/
+vps_247_services/
 contracts/artifacts/
 contracts/cache/
 contracts/typechain-types/
