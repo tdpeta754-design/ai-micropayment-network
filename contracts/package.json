@@ -12,14 +12,20 @@
     "clean": "hardhat clean"
   },
   "devDependencies": {
+    "@account-abstraction/contracts": "^0.6.0",
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "hardhat": "^2.22.0",
-    "typescript": "^5.4.0",
-    "ts-node": "^10.9.2",
-    "dotenv": "^16.4.0",
     "@openzeppelin/contracts": "^4.9.6",
-    "@account-abstraction/contracts": "^0.6.0"
+    "dotenv": "^16.4.0",
+    "fast-check": "^4.9.0",
+    "hardhat": "^2.22.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.0"
   },
-  "keywords": ["ai", "micropayment", "base", "erc-4337"],
+  "keywords": [
+    "ai",
+    "micropayment",
+    "base",
+    "erc-4337"
+  ],
   "license": "MIT"
 }

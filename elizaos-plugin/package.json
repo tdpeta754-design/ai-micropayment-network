@@ -1,0 +1,22 @@
+{
+  "name": "@aimpn/elizaos-plugin",
+  "version": "1.0.0-alpha.1",
+  "description": "Zero-Gas M2M Micropayments Plugin for ElizaOS Agents on Base L2",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@elizaos/core": "^0.1.1",
+    "ethers": "^6.13.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "@types/node": "^20.0.0"
+  },
+  "keywords": ["elizaos", "eliza-plugin", "aimpn", "base", "micropayments", "crypto", "agent"],
+  "author": "AiMPN Network",
+  "license": "MIT"
+}
