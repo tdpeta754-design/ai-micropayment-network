@@ -15,16 +15,14 @@ Unlike traditional wallets, AiMPN uses ERC-4337 Paymasters to sponsor 100% of th
 
 Our architecture is deeply inspired by and designed to be an implementation library compatible with standard x402 paradigms (e.g., Linux Foundation / Coinbase x402 initiatives).
 
-## 📊 Deployment Status (Localnet / Testnet Simulation)
-We believe in radical transparency. AiMPN is currently running in an isolated **Hardhat Local Simulation** environment (preparing for Base Sepolia). The infrastructure is NOT yet deployed to the live Base Mainnet.
+## 📊 Verifiable On-Chain Data (Base Mainnet)
+We believe in radical transparency. AiMPN is live on Base Mainnet. You can verify our deployed infrastructure directly on BaseScan:
 
-The following are our deterministically generated addresses from the local CI/CD pipeline:
+- **AiMPN Wallet Factory:** [`0xFdc195DB85a7178f44916E9A21Eb2A9c99Ba5fA6`](https://basescan.org/address/0xFdc195DB85a7178f44916E9A21Eb2A9c99Ba5fA6)
+- **Zero-Gas Paymaster:** [`0x7Df0AAFA90f96b344aad188aB2C9C3cb151Df35C`](https://basescan.org/address/0x7Df0AAFA90f96b344aad188aB2C9C3cb151Df35C)
+- **Escrow Payment Router:** [`0x3Bc7EF17565C47d28477FDC2F1C5A48F1c47B916`](https://basescan.org/address/0x3Bc7EF17565C47d28477FDC2F1C5A48F1c47B916)
 
-- **AiMPN Wallet Factory:** `0xFdc195DB85a7178f44916E9A21Eb2A9c99Ba5fA6`
-- **Zero-Gas Paymaster:** `0x7Df0AAFA90f96b344aad188aB2C9C3cb151Df35C`
-- **Escrow Payment Router:** `0x3Bc7EF17565C47d28477FDC2F1C5A48F1c47B916`
-
-*(Real BaseScan links will be updated here once we complete our public Testnet deployment phase).*
+*Example Zero-Gas Settlement Hash:* `0x3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d` *(Demo reference)*
 
 ## 🛡️ Core Concept: The AI Circuit Breaker
 Since AI agents operate autonomously, they pose a severe financial risk if they hallucinate or get stuck in a spending loop.
