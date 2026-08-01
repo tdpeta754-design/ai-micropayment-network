@@ -1,0 +1,25 @@
+name: Slither Static Analysis
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Run Slither
+      uses: crytic/slither-action@v0.3.1
+      with:
+        target: 'contracts/'
+        slither-args: '--exclude-dependencies --filter-paths "node_modules"'
+        fail-on: none # Warn only for now, since it's an alpha project
+      
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: ${{ steps.slither.outputs.sarif }}
