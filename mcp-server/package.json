@@ -1,0 +1,19 @@
+{
+  "name": "aimpn-mcp-server",
+  "version": "1.0.0",
+  "description": "Model Context Protocol Server for AiMPN Base L2 Micropayments",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.1",
+    "ethers": "^6.13.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.5.4"
+  }
+}
